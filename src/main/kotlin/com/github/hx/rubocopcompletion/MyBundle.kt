@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template
+package com.github.hx.rubocopcompletion
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls
