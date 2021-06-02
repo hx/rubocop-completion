@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.hx.rubocopcompletion</id>
-    <name>rubocop-completion</name>
+    <name>RuboCop Completion</name>
     <vendor>hx</vendor>
 
     <!-- Product and plugin compatibility requirements -->
