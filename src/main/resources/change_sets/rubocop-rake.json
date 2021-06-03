@@ -1,0 +1,350 @@
+[
+  {
+    "version": "0.1.0",
+    "diff": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "RuboCop configuration schema",
+      "description": "Schema for RuboCop configuration files (e.g. .rubocop.yml), intended for helping IDEs provide autocompletion and validation.",
+      "type": "object",
+      "additionalProperties": false,
+      "definitions": {
+        "inherit_mode": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "enum": [
+              "merge",
+              "override"
+            ]
+          },
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "listOfFiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "info",
+            "refactor",
+            "convention",
+            "warning",
+            "error",
+            "fatal"
+          ]
+        },
+        "stringOrStrings": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "attributeName": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z]*$"
+        }
+      },
+      "properties": {
+        "inherit_from": {
+          "type": "string"
+        },
+        "inherit_gem": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/stringOrStrings"
+          }
+        },
+        "require": {
+          "$ref": "#/definitions/stringOrStrings"
+        },
+        "inherit_mode": {
+          "$ref": "#/definitions/inherit_mode"
+        },
+        "Rake/Desc": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: Rakefile, **/*.rake"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Describe the task with `desc` method."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.2.0",
+    "diff": {
+      "properties": {
+        "Rake/MethodDefinitionInTask": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: Rakefile, **/*.rake"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not define a method in rake task, because it will be defined to the top level."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.3.0",
+    "diff": {
+      "properties": {
+        "Rake/ClassDefinitionInTask": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not define a class or module in rake task, because it will be defined to the top level."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.3.1",
+    "diff": {
+      "properties": {
+        "Rake/ClassDefinitionInTask": {
+          "properties": {
+            "Include": {
+              "description": "Default: Rakefile, **/*.rake"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "0.4.0",
+    "diff": {
+      "properties": {
+        "Rake": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: Rakefile, **/*.rake"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          }
+        },
+        "Rake/ClassDefinitionInTask": {
+          "properties": {
+            "Include": {
+              "description": null
+            }
+          }
+        },
+        "Rake/Desc": {
+          "properties": {
+            "Include": {
+              "description": null
+            }
+          }
+        },
+        "Rake/DuplicateTask": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not define tasks with the same name"
+        },
+        "Rake/MethodDefinitionInTask": {
+          "properties": {
+            "Include": {
+              "description": null
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "0.5.0",
+    "diff": {
+      "properties": {
+        "Rake": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            }
+          }
+        },
+        "Rake/DuplicateNamespace": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not define namespace with the same name"
+        }
+      }
+    }
+  },
+  {
+    "version": "0.5.1",
+    "diff": {
+    }
+  }
+]

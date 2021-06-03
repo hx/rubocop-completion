@@ -1,0 +1,1543 @@
+[
+  {
+    "version": "0.0.0",
+    "diff": {
+      "$schema": "http://json-schema.org/draft-07/schema",
+      "title": "RuboCop configuration schema",
+      "description": "Schema for RuboCop configuration files (e.g. .rubocop.yml), intended for helping IDEs provide autocompletion and validation.",
+      "type": "object",
+      "additionalProperties": false,
+      "definitions": {
+        "inherit_mode": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "enum": [
+              "merge",
+              "override"
+            ]
+          },
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "listOfFiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "info",
+            "refactor",
+            "convention",
+            "warning",
+            "error",
+            "fatal"
+          ]
+        },
+        "stringOrStrings": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "attributeName": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z]*$"
+        }
+      },
+      "properties": {
+        "inherit_from": {
+          "type": "string"
+        },
+        "inherit_gem": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/stringOrStrings"
+          }
+        },
+        "require": {
+          "$ref": "#/definitions/stringOrStrings"
+        },
+        "inherit_mode": {
+          "$ref": "#/definitions/inherit_mode"
+        }
+      }
+    }
+  },
+  {
+    "version": "0.0.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.1.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertNil": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `assert_nil` instead of `assert_equal(nil, something)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.2.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertEmpty": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `assert_empty` instead of `assert(actual.empty?)`."
+        },
+        "Minitest/AssertIncludes": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `assert_includes` instead of `assert(collection.includes?(actual))`."
+        },
+        "Minitest/AssertTruthy": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `assert(actual)` instead of `assert_equal(true, actual)`."
+        },
+        "Minitest/RefuteNil": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `refute_nil` instead of `refute_equal(nil, something)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.2.1",
+    "diff": {
+      "properties": {
+        "Minitest": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: **/test/**/*"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "0.3.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertNil": {
+          "description": "This cop enforces the test to use `assert_nil` instead of using `assert_equal(nil, something)`."
+        },
+        "Minitest/AssertEmpty": {
+          "description": "This cop enforces the test to use `assert_empty` instead of using `assert(object.empty?)`."
+        },
+        "Minitest/AssertIncludes": {
+          "description": "This cop enforces the test to use `assert_includes` instead of using `assert(collection.include?(object))`."
+        },
+        "Minitest/AssertRespondTo": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_respond_to(object, :some_method)` over `assert(object.respond_to?(:some_method))`."
+        },
+        "Minitest/AssertTruthy": {
+          "description": "This cop enforces the test to use `assert(actual)` instead of using `assert_equal(true, actual)`."
+        },
+        "Minitest/RefuteEqual": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `refute_equal` instead of `assert(expected != object)` or `assert(! expected == object))`."
+        },
+        "Minitest/RefuteNil": {
+          "description": "This cop enforces the test to use `refute_nil` instead of using `refute_equal(nil, something)`."
+        },
+        "Minitest/RefuteEmpty": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces to use `refute_empty` instead of using `refute(object.empty?)`."
+        },
+        "Minitest/RefuteIncludes": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_includes` instead of using `refute(collection.include?(object))`."
+        },
+        "Minitest/RefuteFalse": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check if your test uses `refute(actual)` instead of `assert_equal(false, actual)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.4.0",
+    "diff": {
+      "properties": {
+        "Minitest": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            }
+          }
+        },
+        "Minitest/AssertEqual": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_equal` instead of using `assert(expected == actual)`."
+        },
+        "Minitest/AssertInstanceOf": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_instance_of(Class, object)` over `assert(object.instance_of?(Class))`"
+        },
+        "Minitest/RefuteInstanceOf": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_instance_of(Class, object)` over `refute(object.instance_of?(Class))`."
+        },
+        "Minitest/RefuteRespondTo": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_respond_to(object, :some_method)` over `refute(object.respond_to?(:some_method))`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.4.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.5.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertEmptyLiteral": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_empty` instead of using `assert([], object)` or `assert({}, object)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.5.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.6.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertMatch": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_match` instead of using `assert(matcher.match(object))`."
+        },
+        "Minitest/RefuteMatch": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_match` instead of using `refute(matcher.match(object))`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.6.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.6.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.7.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertRespondTo": {
+          "description": "This cop enforces the test to use `assert_respond_to(object, :do_something)` over `assert(object.respond_to?(:do_something))`."
+        },
+        "Minitest/GlobalExpectations": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for deprecated global expectations."
+        },
+        "Minitest/RefuteRespondTo": {
+          "description": "This cop enforces the test to use `refute_respond_to(object, :do_something)` over `refute(object.respond_to?(:do_something))`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.8.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.8.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.9.0",
+    "diff": {
+      "properties": {
+        "Minitest": {
+          "properties": {
+            "Include": {
+              "description": "Default: **/test/**/*, **/*_test.rb"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "0.10.0",
+    "diff": {
+      "properties": {
+        "Minitest": {
+          "description": "'Minitest' department (minitest extension)"
+        },
+        "Minitest/AssertEmpty": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/AssertEmptyLiteral": {
+          "properties": {
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_empty` instead of using `assert([], object)`."
+        },
+        "Minitest/AssertEqual": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `assert_equal(expected, actual)` over `assert(expected == actual)`."
+        },
+        "Minitest/AssertInDelta": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_in_delta` instead of using `assert_equal` to compare floats."
+        },
+        "Minitest/AssertIncludes": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/AssertInstanceOf": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_instance_of(Class, object)` over `assert(object.instance_of?(Class))`."
+        },
+        "Minitest/AssertKindOf": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_kind_of(Class, object)` over `assert(object.kind_of?(Class))`."
+        },
+        "Minitest/AssertMatch": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_match` instead of using `assert(matcher.match(string))`."
+        },
+        "Minitest/AssertNil": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/AssertOutput": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for opportunities to use `assert_output`."
+        },
+        "Minitest/AssertPathExists": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_path_exists` instead of using `assert(File.exist?(path))`."
+        },
+        "Minitest/AssertRespondTo": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `assert_respond_to(object, :do_something)` over `assert(object.respond_to?(:do_something))`."
+        },
+        "Minitest/AssertSilent": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_silent { ... }` instead of using `assert_output('', '') { ... }`."
+        },
+        "Minitest/AssertTruthy": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/AssertionInLifecycleHook": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for usage of assertions in lifecycle hooks."
+        },
+        "Minitest/GlobalExpectations": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for deprecated global expectations and autocorrects them to use expect format."
+        },
+        "Minitest/LiteralAsActualArgument": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces correct order of expected and actual arguments for `assert_equal`."
+        },
+        "Minitest/MultipleAssertions": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Max": {
+              "type": "integer",
+              "description": "Default: 3"
+            }
+          },
+          "description": "This cop checks if test cases contain too many assertion calls. The maximum allowed assertion calls is configurable."
+        },
+        "Minitest/RefuteEmpty": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/RefuteEqual": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `refute_equal(expected, object)` over `assert_equal(expected != actual)` or `assert(! expected == actual)`."
+        },
+        "Minitest/RefuteFalse": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `refute(object)` over `assert_equal(false, object)`."
+        },
+        "Minitest/RefuteInDelta": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_in_delta` instead of using `refute_equal` to compare floats."
+        },
+        "Minitest/RefuteIncludes": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/RefuteInstanceOf": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `refute_instance_of(Class, object)` over `refute(object.instance_of?(Class))`."
+        },
+        "Minitest/RefuteKindOf": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the use of `refute_kind_of(Class, object)` over `refute(object.kind_of?(Class))`."
+        },
+        "Minitest/RefuteMatch": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_match` instead of using `refute(matcher.match(string))`."
+        },
+        "Minitest/RefuteNil": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/RefutePathExists": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `refute_path_exists` instead of using `refute(File.exist?(path))`."
+        },
+        "Minitest/RefuteRespondTo": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "Minitest/TestMethodName": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces that test method names start with `test_` prefix."
+        },
+        "Minitest/UnspecifiedException": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for a specified error in `assert_raises`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.10.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.10.2",
+    "diff": {
+      "properties": {
+        "Minitest/RefuteEqual": {
+          "description": "This cop enforces the use of `refute_equal(expected, object)` over `assert(expected != actual)` or `assert(! expected == actual)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.10.3",
+    "diff": {
+      "properties": {
+        "Minitest/TestMethodName": {
+          "description": "This cop enforces that test method names start with `test_` prefix. It aims to prevent tests that aren't executed by forgetting to start test method name with `test_`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.11.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertEmptyLiteral": {
+          "description": "This cop enforces the test to use `assert_empty` instead of using `assert_equal([], object)`."
+        },
+        "Minitest/AssertWithExpectedArgument": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop tries to detect when a user accidentally used `assert` when they meant to use `assert_equal`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.11.1",
+    "diff": {
+      "properties": {
+        "Minitest/AssertWithExpectedArgument": {
+          "properties": {
+            "Safe": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop tries to detect when a user accidentally used `assert` when they meant to use `assert_equal`.\n\nIt is marked as unsafe because it is not possible to determine whether the second argument of `assert` is a message or not."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.12.0",
+    "diff": {
+      "properties": {
+        "Minitest/NoAssertions": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: false"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks if test cases contain any assertion calls."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.12.1",
+    "diff": {
+    }
+  }
+]
