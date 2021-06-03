@@ -5,12 +5,11 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/16929-rubocop-completion.svg)](https://plugins.jetbrains.com/plugin/16929-rubocop-completion)
 
 <!-- Plugin description -->
-Autocompletion and validation of RuboCop configuration files, e.g.: 
+Autocompletion and validation of RuboCop configuration files, and inline enable/disable/todo directives.
 
-- `.rubocop.yml`
-- `.rubocop_todo.yml`
+Your `Gemfile.lock` is used to determine RuboCop and extension versions, so you should always have the right list of cops.
 
-RuboCop and extension versions are read from your `Gemfile.lock`.
+The [`rubocop-schema-gen`](https://github.com/hx/rubocop-schema) gem is used to generate schemas from RuboCop's documentation.
 <!-- Plugin description end -->
 
 ## Installation
@@ -24,8 +23,5 @@ RuboCop and extension versions are read from your `Gemfile.lock`.
 
   Download the [latest release](https://github.com/hx/rubocop-completion/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
 
 [template]: https://github.com/JetBrains/intellij-platform-plugin-template
