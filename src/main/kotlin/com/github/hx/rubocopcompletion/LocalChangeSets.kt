@@ -1,5 +1,6 @@
 package com.github.hx.rubocopcompletion
 
+import com.intellij.openapi.progress.runBackgroundableTask
 import com.intellij.util.io.*
 import java.lang.RuntimeException
 import java.nio.file.Files
@@ -8,7 +9,7 @@ import java.nio.file.Paths
 import java.nio.file.attribute.PosixFilePermissions
 
 /**
- * This is a change set on the local file system. TODO: use the rubocop-schema-gen gem to update this every so often.
+ * This is a change set on the local file system.
  */
 class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
     companion object {
@@ -30,6 +31,9 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
             if (!hasChangeSetForGem(gemName)) {
                 pathForGem(gemName).write(BuiltInChangeSets.changeSetForGem(gemName)!!)
             }
+        }
+        runBackgroundableTask("Looking for new RuboCop docs") { progress ->
+            ChangeSetUpdater(directory).run(progress)
         }
     }
 
