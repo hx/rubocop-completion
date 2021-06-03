@@ -52,14 +52,15 @@ object SchemaProvider : ModuleSchemaRepo {
         subscribeToProject(project)
 
         return ModuleManager.getInstance(project).modules
-                .filter { findLockFileForModule(it) != null }
-                .map { ModuleSchemaProvider(it, this) }
+            .filter { findLockFileForModule(it) != null }
+            .map { ModuleSchemaProvider(it, this) }
     }
 
     /**
      * Implements ModuleSchemaRepo. Given a module, provides a schema if one can be
      * formed for the module.
      */
+    @Suppress("ReturnCount")
     override fun getSchemaForModule(module: Module): Schema? {
         val lockFile = findLockFileForModule(module) ?: return null
         synchronized(schemasByLockFile) {
@@ -73,7 +74,7 @@ object SchemaProvider : ModuleSchemaRepo {
 
     private fun subscribeToProject(project: Project) {
         synchronized(projectListeners) {
-            if(!projectListeners.contains(project)) {
+            if (!projectListeners.contains(project)) {
                 project.messageBus.connect().subscribe(VirtualFileManager.VFS_CHANGES, changeDelegate)
             }
         }

@@ -6,3 +6,11 @@ formatting:
     continuationIndentSize: 8
   ParameterListWrapping:
     indentSize: 8
+
+style:
+  ForbiddenComment:
+    active: false
+
+performance:
+  SpreadOperator:
+    active: false

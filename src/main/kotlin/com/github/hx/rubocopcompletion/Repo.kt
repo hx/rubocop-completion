@@ -2,7 +2,10 @@ package com.github.hx.rubocopcompletion
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonObject
 
 class Repo(private val provider: ChangeSetProvider) {
     companion object {

@@ -14,6 +14,7 @@ import com.intellij.util.EventDispatcher
  * The alternative is to use LightVirtualFile, which has some noticeable shortcomings around change
  * events that make it unsuitable.
  */
+@Suppress("TooManyFunctions")
 class FileSystem : VirtualFileSystem() {
     companion object {
         val instance = FileSystem()
@@ -43,7 +44,7 @@ class FileSystem : VirtualFileSystem() {
     override fun getProtocol() = "rubocop-schema"
 
     override fun findFileByPath(p0: String): VirtualFile? = null
-    override fun refresh(p0: Boolean) {}
+    override fun refresh(p0: Boolean) { /* no-op */ }
     override fun refreshAndFindFileByPath(p0: String): VirtualFile? = null
 
     override fun addVirtualFileListener(listener: VirtualFileListener) = dispatcher.addListener(listener)

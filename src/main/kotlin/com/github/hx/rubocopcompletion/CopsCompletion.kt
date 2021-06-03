@@ -1,6 +1,7 @@
 package com.github.hx.rubocopcompletion
 
-import com.intellij.codeInsight.completion.*
+import com.intellij.codeInsight.completion.CompletionContributor
+import com.intellij.codeInsight.completion.CompletionType
 import com.intellij.patterns.PlatformPatterns
 
 /**

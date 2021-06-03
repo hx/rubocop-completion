@@ -11,6 +11,7 @@ import java.io.OutputStream
  * it to be passed directly to the editor for consumption. Also provides auto-completions for the names of cops
  * in its properties.
  */
+@Suppress("TooManyFunctions")
 class Schema(private val fs: FileSystem, private val spec: SchemaSpec) : VirtualFile() {
     // TODO: if IntelliJ ever actually respond to the events raised by FileSystem.schemaIsReady,
     //   use this placeholder, do schema generation asynchronously, and call it.
@@ -26,7 +27,7 @@ class Schema(private val fs: FileSystem, private val spec: SchemaSpec) : Virtual
         val schema = Repo.userHome.schemaForSpec(spec)
         contents = schema.toString().toByteArray()
         Logger.info("Generated schema is ${contents.size} bytes")
-        copNameCompletions = extractCopNames(schema)
+        copNameCompletions = CopNamesExtractor.extract(schema)
     }
 
     override fun getModificationStamp(): Long = 0
@@ -50,6 +51,6 @@ class Schema(private val fs: FileSystem, private val spec: SchemaSpec) : Virtual
     override fun contentsToByteArray() = contents
     override fun getTimeStamp() = 0.toLong()
     override fun getLength() = contentsToByteArray().size.toLong()
-    override fun refresh(p0: Boolean, p1: Boolean, p2: Runnable?) {}
+    override fun refresh(p0: Boolean, p1: Boolean, p2: Runnable?) { /* no-op */ }
     override fun getInputStream() = VfsUtilCore.byteStreamSkippingBOM(contentsToByteArray(), this)
 }

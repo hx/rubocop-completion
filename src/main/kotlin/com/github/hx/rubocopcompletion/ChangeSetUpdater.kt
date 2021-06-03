@@ -6,6 +6,7 @@ import java.nio.file.Path
 class ChangeSetUpdater(private val directory: Path) {
     private val gemVersion = "0.1.4"
 
+    @Suppress("MagicNumber", "SwallowedException")
     fun run(progress: ProgressIndicator) {
         try {
             progress.isIndeterminate = true
@@ -23,7 +24,7 @@ class ChangeSetUpdater(private val directory: Path) {
             progress.fraction = 1.0
             progress.text = "Completed successfully"
             Thread.sleep(5_000)
-        } catch(e: Command.Failed) {
+        } catch (e: Command.Failed) {
             progress.isIndeterminate = false
 
             progress.fraction = 0.0
@@ -34,6 +35,7 @@ class ChangeSetUpdater(private val directory: Path) {
 
     private fun cmd(vararg command: String) = Command(directory, *command).run()
 
+    @Suppress("SwallowedException")
     class Command(private val directory: Path, vararg val command: String) {
         val builder = ProcessBuilder(*command).directory(directory.toFile())!!
 
@@ -42,22 +44,19 @@ class ChangeSetUpdater(private val directory: Path) {
         fun run() {
             Logger.info("Running in %s : %s".format(directory, command.joinToString(" ")))
 
-            try {
-                val process = builder.start()
+            val process = builder.start()
 
-                process.inputStream.bufferedReader().readText()
-                val error = process.errorStream.bufferedReader().readText()
+            process.inputStream.bufferedReader().readText()
+            val error = process.errorStream.bufferedReader().readText()
 
-                process.waitFor()
+            process.waitFor()
 
-                if (process.exitValue() != 0) {
-                    throw Failed(error)
-                }
-                Logger.info("Run complete with no error")
-            } catch (e: Exception) {
-                Logger.warn("Run failed: %s: %s".format(e.javaClass.name, e.message))
-                throw Failed(e.javaClass.name + ": "+e.message)
+            if (process.exitValue() != 0) {
+                Logger.warn("Run failed: $error")
+                throw Failed(error)
             }
+
+            Logger.info("Run complete with no error")
         }
     }
 }

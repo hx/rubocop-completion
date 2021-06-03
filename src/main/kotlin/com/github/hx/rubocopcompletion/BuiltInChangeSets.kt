@@ -8,12 +8,12 @@ object BuiltInChangeSets : ChangeSetProvider {
      * This list should always match exactly the contents of src/main/resources/change_sets
      */
     val knownGems = setOf(
-            "rubocop",
-            "rubocop-rake",
-            "rubocop-rspec",
-            "rubocop-minitest",
-            "rubocop-performance",
-            "rubocop-rails"
+        "rubocop",
+        "rubocop-rake",
+        "rubocop-rspec",
+        "rubocop-minitest",
+        "rubocop-performance",
+        "rubocop-rails"
     )
 
     override fun changeSetForGem(gemName: String): String? {

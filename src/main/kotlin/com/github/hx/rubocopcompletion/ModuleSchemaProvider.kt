@@ -14,7 +14,7 @@ import com.jetbrains.jsonSchema.impl.JsonSchemaVersion
  */
 class ModuleSchemaProvider(private val module: Module, private val repo: ModuleSchemaRepo) : JsonSchemaFileProvider {
     override fun isAvailable(file: VirtualFile) =
-            file.fileType.name == "YAML" &&
+        file.fileType.name == "YAML" &&
             file.name.startsWith(".rubocop") &&
             module.rootManager.fileIndex.isInContent(file) &&
             repo.getSchemaForModule(module) != null
@@ -24,4 +24,3 @@ class ModuleSchemaProvider(private val module: Module, private val repo: ModuleS
     override fun getSchemaType() = SchemaType.embeddedSchema
     override fun getSchemaVersion() = JsonSchemaVersion.SCHEMA_7
 }
-

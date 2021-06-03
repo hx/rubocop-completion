@@ -3,3 +3,4 @@
 build
 
 /.http-cache
+/default-detekt-config.yml
