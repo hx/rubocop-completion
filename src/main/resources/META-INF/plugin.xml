@@ -12,6 +12,15 @@
         <projectService serviceImplementation="com.github.hx.rubocopcompletion.services.MyProjectService"/>
     </extensions>
 
+    <extensions defaultExtensionNs="JavaScript.JsonSchema">
+        <ProviderFactory implementation="com.github.hx.rubocopcompletion.SchemaProviderFactory"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="ruby"
+                                implementationClass="com.github.hx.rubocopcompletion.CopsCompletion"/>
+    </extensions>
+
     <applicationListeners>
         <listener class="com.github.hx.rubocopcompletion.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
