@@ -1,4 +1,4 @@
-# RuboCop Completion
+# <img src="src/main/resources/META-INF/pluginIcon.svg" width="48"> RuboCop Completion
 
 ![Build](https://github.com/hx/rubocop-completion/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/16929-rubocop-completion.svg)](https://plugins.jetbrains.com/plugin/16929-rubocop-completion)
