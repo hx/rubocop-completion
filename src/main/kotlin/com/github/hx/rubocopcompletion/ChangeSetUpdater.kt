@@ -16,19 +16,19 @@ class ChangeSetUpdater(private val directory: Path) {
             cmd("gem", "install", "rubocop-schema-gen", "--no-document", "--version", gemVersion)
 
             progress.fraction = 0.5
-            progress.text = "Running updater …"
+            progress.text = "Running RuboCop schema updater …"
             cmd("rubocop-schema-gen", "_${gemVersion}_", "--build-repo=.")
 
             progress.isIndeterminate = false
 
             progress.fraction = 1.0
-            progress.text = "Completed successfully"
+            progress.text = "RuboCop schema update complete"
             Thread.sleep(5_000)
         } catch (e: Command.Failed) {
             progress.isIndeterminate = false
 
             progress.fraction = 0.0
-            progress.text = "Update failed; check idea.log for details"
+            progress.text = "RuboCop schema update failed; check idea.log for details"
             Thread.sleep(30_000)
         }
     }
