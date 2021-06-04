@@ -1,6 +1,7 @@
 package com.github.hx.rubocopcompletion
 
 import com.intellij.openapi.progress.runBackgroundableTask
+import com.intellij.util.concurrency.AppExecutorUtil
 import com.intellij.util.io.exists
 import com.intellij.util.io.isDirectory
 import com.intellij.util.io.readText
@@ -9,12 +10,15 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.nio.file.attribute.PosixFilePermissions
+import java.util.concurrent.TimeUnit
 
 /**
  * This is a change set on the local file system.
  */
 class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
     companion object {
+        const val checkForUpdatesEvery: Long = 3 // Hours
+
         val userHome = LocalChangeSets(
             Paths.get(System.getProperty("user.home")).resolve(".rubocop-configuration-repo")
         )
@@ -36,9 +40,15 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
                     pathForGem(gemName).write(BuiltInChangeSets.changeSetForGem(gemName)!!)
                 }
             }
-            runBackgroundableTask("Looking for new RuboCop docs") { progress ->
-                ChangeSetUpdater(directory).run(progress)
-            }
+            AppExecutorUtil
+                .getAppScheduledExecutorService()
+                .scheduleWithFixedDelay({ checkForUpdates() }, 0, checkForUpdatesEvery, TimeUnit.HOURS)
+        }
+    }
+
+    private fun checkForUpdates() {
+        runBackgroundableTask("Looking for new RuboCop docs") { progress ->
+            ChangeSetUpdater(directory).run(progress)
         }
     }
 
