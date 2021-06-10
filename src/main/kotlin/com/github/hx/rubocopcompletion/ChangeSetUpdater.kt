@@ -5,15 +5,22 @@ import java.nio.file.Path
 
 class ChangeSetUpdater(private val changeSetsDir: Path, private val gemsDir: Path) {
     private val gemVersion = "0.1.5"
+    private var installAttempted = false
 
     @Suppress("MagicNumber", "SwallowedException")
     fun run(progress: ProgressIndicator) {
         try {
             progress.isIndeterminate = true
 
-            progress.fraction = 0.1
-            progress.text = "Installing required version ($gemVersion) of rubocop-schema-gen gem …"
-            cmd("gem", "install", "rubocop-schema-gen", "--no-document", "--version", gemVersion)
+            // Calls to this method should never overlap, but it never hurts to be thread-safe, right?
+            synchronized(this) {
+                if (!installAttempted) {
+                    progress.fraction = 0.1
+                    progress.text = "Ensuring required version ($gemVersion) of rubocop-schema-gen gem is installed …"
+                    cmd("gem", "install", "rubocop-schema-gen", "--no-document", "--version", gemVersion)
+                    installAttempted = true
+                }
+            }
 
             progress.fraction = 0.5
             progress.text = "Running RuboCop schema updater …"
@@ -47,7 +54,6 @@ class ChangeSetUpdater(private val changeSetsDir: Path, private val gemsDir: Pat
         *command
     ).run()
 
-    @Suppress("SwallowedException")
     class Command(private val env: Map<String, String>, private val workDir: Path, vararg val command: String) {
         val builder = ProcessBuilder(*command).directory(workDir.toFile())!!
 

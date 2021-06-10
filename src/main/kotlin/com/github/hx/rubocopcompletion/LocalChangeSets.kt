@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 /**
  * This is a change set on the local file system.
  */
-class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
+class LocalChangeSets(directory: Path) : ChangeSetProvider {
     companion object {
         const val checkForUpdatesEvery: Long = 3 // Hours
 
@@ -26,6 +26,7 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
 
     private val changeSetsDir = directory.resolve("change_sets")
     private val gemsDir = directory.resolve("gems")
+    private val updater = ChangeSetUpdater(changeSetsDir, gemsDir)
 
     init {
         var ok = true
@@ -57,9 +58,7 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
     }
 
     private fun checkForUpdates() {
-        runBackgroundableTask("Looking for new RuboCop docs") { progress ->
-            ChangeSetUpdater(changeSetsDir, gemsDir).run(progress)
-        }
+        runBackgroundableTask("Updating RuboCop completion data") { progress -> updater.run(progress) }
     }
 
     override fun changeSetForGem(gemName: String): String? {
