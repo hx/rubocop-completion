@@ -3,5 +3,16 @@
 # rubocop-completion Changelog
 
 ## [Unreleased]
+
+## [0.1.0] - 2021-06-10
+### Fixed
+- Made installation of `rubocop-schema-gen` gem more reliable, especially on macOS.
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+- Support for all versions of `rubocop(-*)` gems, not just the most recent 30 versions.
+### Changed
+- Only check for/install the `rubocop-schema-gen` gem once per process.
+- Updated README.
+
+## [0.0.1] - 2021-06-05
+### Added
+- First working draft.

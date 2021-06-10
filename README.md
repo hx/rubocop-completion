@@ -10,6 +10,8 @@ Autocompletion and validation of RuboCop configuration files, and inline enable/
 Your `Gemfile.lock` is used to determine RuboCop and extension versions, so you should always have the right list of cops.
 
 The [`rubocop-schema-gen`](https://github.com/hx/rubocop-schema) gem is used to generate schemas from RuboCop's documentation.
+
+Press <kbd>CTRL</kbd> + <kbd>SPACE</kbd> (or your configured shortcut key) to activate completion while typing.
 <!-- Plugin description end -->
 
 ## Installation
