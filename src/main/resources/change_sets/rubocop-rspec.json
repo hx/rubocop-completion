@@ -1,6 +1,6 @@
 [
   {
-    "version": "1.29.0",
+    "version": "0.1.0",
     "diff": {
       "$schema": "http://json-schema.org/draft-07/schema",
       "title": "RuboCop configuration schema",
@@ -76,6 +76,678 @@
         "inherit_mode": {
           "$ref": "#/definitions/inherit_mode"
         },
+        "UnitSpecNaming": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: false"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforceDescribeStatement": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "EnforceFilenames": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          },
+          "description": "Check that RSpec unit tests conform to a naming scheme."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.17.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.18.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.18.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.0.rc1",
+    "diff": {
+      "properties": {
+        "UnitSpecNaming": null,
+        "RSpecDescribeClass": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check that the first argument to the top level describe is the tested class or module."
+        },
+        "RSpecDescribedClass": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Use `described_class` for tested class / module"
+        },
+        "RSpecDescribeMethod": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks that the second argument to top level describe is the tested method name."
+        },
+        "RSpecExampleWording": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not use should when describing your tests."
+        },
+        "RSpecMultipleDescribes": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for multiple top level describes."
+        },
+        "RSpecInstanceVariable": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for the usage of instance variables."
+        },
+        "RSpecFileName": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks the file and folder naming of the spec file."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.0.rc2",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.0.rc3",
+    "diff": {
+      "properties": {
+        "RSpecDescribeClass": null,
+        "RSpecDescribedClass": null,
+        "RSpecDescribeMethod": null,
+        "RSpecExampleWording": null,
+        "RSpecMultipleDescribes": null,
+        "RSpecInstanceVariable": null,
+        "RSpecFileName": null,
+        "RSpec/DescribeClass": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check that the first argument to the top level describe is the tested class or module."
+        },
+        "RSpec/DescribedClass": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Use `described_class` for tested class / module"
+        },
+        "RSpec/DescribeMethod": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks that the second argument to top level describe is the tested method name."
+        },
+        "RSpec/ExampleWording": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Do not use should when describing your tests."
+        },
+        "RSpec/MultipleDescribes": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for multiple top level describes."
+        },
+        "RSpec/InstanceVariable": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for the usage of instance variables."
+        },
+        "RSpec/FileName": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "CustomTransform": {
+              "description": "Default: {\"RuboCop\"=>\"rubocop\"}"
+            }
+          },
+          "description": "Checks the file and folder naming of the spec file."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.0",
+    "diff": {
+      "properties": {
+        "RSpec/FileName": {
+          "properties": {
+            "CustomTransform": {
+              "description": "Default: {\"RuboCop\"=>\"rubocop\", \"RSpec\"=>\"rspec\"}"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.0.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.1.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.2.0",
+    "diff": {
+      "properties": {
+        "RSpec/FileName": null,
+        "RSpec/ExampleWording": {
+          "properties": {
+            "CustomTransform": {
+              "description": "Default: {\"be\"=>\"is\", \"have\"=>\"has\", \"not\"=>\"does not\"}"
+            },
+            "IgnoredWords": {
+              "type": "array",
+              "description": "Default: "
+            }
+          }
+        },
+        "RSpec/FilePath": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "CustomTransform": {
+              "description": "Default: {\"RuboCop\"=>\"rubocop\", \"RSpec\"=>\"rspec\"}"
+            }
+          },
+          "description": "Checks the file and folder naming of the spec file."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.2.1",
+    "diff": {
+      "properties": {
+        "RSpec/VerifiedDoubles": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: false"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Prefer using verifying doubles over normal doubles."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.2.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.3.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.3.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.4.0",
+    "diff": {
+      "properties": {
         "RSpec/AnyInstance": {
           "type": "object",
           "additionalProperties": true,
@@ -106,8 +778,950 @@
               "type": "string"
             }
           },
+          "description": "Check that instances are not being stubbed globally"
+        },
+        "RSpec/NotToNot": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AcceptedMethod": {
+              "type": "string",
+              "description": "Default: not_to"
+            }
+          },
+          "description": "Enforces the usage of the same method on all negative message expectations."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.4.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.5.0",
+    "diff": {
+      "properties": {
+        "RSpec/VerifiedDoubles": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            }
+          }
+        },
+        "RSpec/NotToNot": {
+          "properties": {
+            "AcceptedMethod": null,
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: not_to"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: not_to, to_not"
+            }
+          }
+        },
+        "RSpec/Focus": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there are focused specs."
+        },
+        "RSpec/ExampleLength": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Max": {
+              "type": "integer",
+              "description": "Default: 5"
+            }
+          },
+          "description": "Checks for long example"
+        }
+      }
+    }
+  },
+  {
+    "version": "1.5.1",
+    "diff": {
+      "properties": {
+        "RSpec/VerifiedDoubles": {
+          "properties": {
+            "IgnoreSymbolicNames": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.5.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.5.3",
+    "diff": {
+      "properties": {
+        "RSpec/NamedSubject": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Name your RSpec subject if you reference it explicitly"
+        }
+      }
+    }
+  },
+  {
+    "version": "1.6.0",
+    "diff": {
+      "properties": {
+        "RSpec/DescribedClass": {
+          "properties": {
+            "SkipBlocks": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.7.0",
+    "diff": {
+      "properties": {
+        "RSpec/AnyInstance": {
           "description": "Check that instances are not being stubbed globally."
         },
+        "RSpec/BeEql": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check for expectations where `be(...)` can replace `eql(...)`."
+        },
+        "RSpec/HookArgument": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: implicit"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: implicit, each, example"
+            }
+          },
+          "description": "Checks the arguments passed to `before`, `around`, and `after`."
+        },
+        "RSpec/DescribeClass": {
+          "description": "Check that the first argument to the top level describe is a constant."
+        },
+        "RSpec/DescribedClass": {
+          "description": "Checks that tests use `described_class`."
+        },
+        "RSpec/DescribeMethod": {
+          "description": "Checks that the second argument to `describe` specifies a method."
+        },
+        "RSpec/ExampleWording": {
+          "description": "Checks that example descriptions do not start with \"should\"."
+        },
+        "RSpec/EmptyExampleGroup": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "CustomIncludeMethods": {
+              "type": "array",
+              "description": "Default: "
+            }
+          },
+          "description": "Checks if an example group does not include any tests."
+        },
+        "RSpec/ExpectActual": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for `expect(...)` calls containing literal values."
+        },
+        "RSpec/MessageChain": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check that chains of messages are not being stubbed."
+        },
+        "RSpec/MultipleExpectations": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Max": {
+              "type": "integer",
+              "description": "Default: 1"
+            }
+          },
+          "description": "Checks if examples contain too many `expect` calls."
+        },
+        "RSpec/NestedGroups": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "MaxNesting": {
+              "type": "integer",
+              "description": "Default: 2"
+            }
+          },
+          "description": "Checks for nested example groups."
+        },
+        "RSpec/InstanceVariable": {
+          "properties": {
+            "AssignmentOnly": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "Checks for instance variable usage in specs."
+        },
+        "RSpec/LetSetup": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks unreferenced `let!` calls being used for test setup."
+        },
+        "RSpec/LeadingSubject": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for `subject` definitions that come after `let` definitions."
+        },
+        "RSpec/FilePath": {
+          "description": "Checks that spec file paths are consistent with the test subject."
+        },
+        "RSpec/NotToNot": {
+          "description": "Checks for consistent method usage for negating expectations."
+        },
+        "RSpec/Focus": {
+          "description": "Checks if examples are focused."
+        },
+        "RSpec/ExampleLength": {
+          "description": "Checks for long examples."
+        },
+        "RSpec/MessageExpectation": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: allow"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: allow, expect"
+            }
+          },
+          "description": "Checks for consistent message expectation style."
+        },
+        "RSpec/NamedSubject": {
+          "description": "Checks for explicitly referenced test subjects."
+        },
+        "RSpec/SubjectStub": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for stubbed test subjects."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.8.0",
+    "diff": {
+      "properties": {
+        "RSpec/FilePath": {
+          "properties": {
+            "IgnoreMethods": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        },
+        "RSpec/ImplicitExpect": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: is_expected"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: is_expected, should"
+            }
+          },
+          "description": "Check that a consistent implicit expectation style is used."
+        },
+        "RSpec/MessageExpectation": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: false"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.9.0",
+    "diff": {
+      "properties": {
+        "RSpec/MessageSpies": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: have_received"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: have_received, receive"
+            }
+          },
+          "description": "Checks that message expectations are set using spies."
+        },
+        "RSpec/RepeatedDescription": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check for repeated description strings in example groups."
+        },
+        "RSpec/SingleArgumentMessageChain": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks that chains of messages contain more than one element."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.9.1",
+    "diff": {
+      "properties": {
+        "RSpec/NestedGroups": {
+          "properties": {
+            "MaxNesting": {
+              "description": "Default: 3"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.10.0",
+    "diff": {
+      "properties": {
+        "RSpec/ExpectOutput": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for opportunities to use `expect { ... }.to output`."
+        },
+        "RSpec/NestedGroups": {
+          "properties": {
+            "MaxNesting": null,
+            "Max": {
+              "type": "integer",
+              "description": "Default: 3"
+            }
+          }
+        },
+        "RSpec/RepeatedExample": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check for repeated examples within example groups."
+        },
+        "RSpec/ScatteredSetup": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for setup scattered across multiple hooks in an example group."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.11.0",
+    "diff": {
+      "properties": {
         "RSpec/AroundBlock": {
           "type": "object",
           "additionalProperties": true,
@@ -140,6 +1754,406 @@
           },
           "description": "Checks that around blocks actually run the test."
         },
+        "RSpec/DescribedClass": {
+          "properties": {
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: described_class"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: described_class, explicit"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.12.0",
+    "diff": {
+      "properties": {
+        "RSpec/BeforeAfterAll": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: spec/spec_helper.rb, spec/rails_helper.rb, spec/support/**/*.rb"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check that before/after(:all) isn't being used."
+        },
+        "RSpec/InstanceSpy": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for `instance_double` used with `have_received`."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.13.0",
+    "diff": {
+      "properties": {
+        "RSpec/ExampleWording": {
+          "description": "Checks for common mistakes in example descriptions."
+        },
+        "RSpec/ExpectActual": {
+          "properties": {
+            "Exclude": {
+              "description": "Default: spec/routing/**/*"
+            }
+          }
+        },
+        "RSpec/ItBehavesLike": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: it_behaves_like"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: it_behaves_like, it_should_behave_like"
+            }
+          },
+          "description": "Checks that only one `it_behaves_like` style is used."
+        },
+        "RSpec/SharedContext": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for proper shared_context and shared_examples usage."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.14.0",
+    "diff": {
+      "properties": {
+        "RSpec/IteratedExpectation": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check that `all` matcher is used instead of iterating over an array."
+        },
+        "RSpec/EmptyLineAfterFinalLet": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there is an empty line after the last let block."
+        },
+        "RSpec/EmptyLineAfterSubject": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there is an empty line after subject block."
+        },
+        "RSpec/OverwritingSetup": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there is a let/subject that overwrites an existing one."
+        },
+        "RSpec/ScatteredLet": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for let scattered across the example group."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.15.0",
+    "diff": {
+      "properties": {
+        "RSpec/DescribeSymbol": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Avoid describing symbols."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.15.1",
+    "diff": {
+      "properties": {
+        "RSpec/ExampleWording": {
+          "properties": {
+            "CustomTransform": {
+              "description": "Default: {\"be\"=>\"is\", \"BE\"=>\"IS\", \"have\"=>\"has\", \"HAVE\"=>\"HAS\"}"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.16.0",
+    "diff": {
+      "properties": {
         "RSpec/AlignLeftLetBrace": {
           "type": "object",
           "additionalProperties": true,
@@ -204,663 +2218,6 @@
           },
           "description": "Checks that right braces for adjacent single line lets are aligned."
         },
-        "RSpec/Be": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check for expectations where `be` is used without argument."
-        },
-        "RSpec/BeEql": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check for expectations where `be(...)` can replace `eql(...)`."
-        },
-        "RSpec/BeforeAfterAll": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles",
-              "description": "Default: spec/spec_helper.rb, spec/rails_helper.rb, spec/support/**/*.rb"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check that before/after(:all) isn't being used."
-        },
-        "RSpec/ContextWording": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "Prefixes": {
-              "type": "array",
-              "description": "Default: when, with, without"
-            }
-          },
-          "description": "`context` block descriptions should start with 'when', or 'with'."
-        },
-        "RSpec/DescribeClass": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check that the first argument to the top level describe is a constant."
-        },
-        "RSpec/DescribedClass": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "SkipBlocks": {
-              "type": "boolean",
-              "description": "Default: false"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: described_class"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: described_class, explicit"
-            }
-          },
-          "description": "Checks that tests use `described_class`."
-        },
-        "RSpec/DescribeMethod": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks that the second argument to `describe` specifies a method."
-        },
-        "RSpec/DescribeSymbol": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Avoid describing symbols."
-        },
-        "RSpec/IteratedExpectation": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check that `all` matcher is used instead of iterating over an array."
-        },
-        "RSpec/EmptyExampleGroup": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "CustomIncludeMethods": {
-              "type": "array",
-              "description": "Default: "
-            }
-          },
-          "description": "Checks if an example group does not include any tests."
-        },
-        "RSpec/EmptyLineAfterExampleGroup": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if there is an empty line after example group blocks."
-        },
-        "RSpec/EmptyLineAfterFinalLet": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if there is an empty line after the last let block."
-        },
-        "RSpec/EmptyLineAfterHook": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if there is an empty line after hook blocks."
-        },
-        "RSpec/EmptyLineAfterSubject": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if there is an empty line after subject block."
-        },
-        "RSpec/ExampleLength": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "Max": {
-              "type": "integer",
-              "description": "Default: 5"
-            }
-          },
-          "description": "Checks for long examples."
-        },
-        "RSpec/ExampleWithoutDescription": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: always_allow"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: always_allow, single_line_only, disallow"
-            }
-          },
-          "description": "Checks for examples without a description."
-        },
-        "RSpec/ExampleWording": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "CustomTransform": {
-              "description": "Default: {\"be\"=>\"is\", \"BE\"=>\"IS\", \"have\"=>\"has\", \"HAVE\"=>\"HAS\"}"
-            },
-            "IgnoredWords": {
-              "type": "array",
-              "description": "Default: "
-            }
-          },
-          "description": "Checks for common mistakes in example descriptions."
-        },
-        "RSpec/ExpectActual": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles",
-              "description": "Default: spec/routing/**/*"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for `expect(...)` calls containing literal values."
-        },
-        "RSpec/ExpectChange": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: method_call"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: method_call, block"
-            }
-          },
-          "description": "Checks for consistent style of change matcher."
-        },
         "RSpec/ExpectInHook": {
           "type": "object",
           "additionalProperties": true,
@@ -892,329 +2249,6 @@
             }
           },
           "description": "Do not use `expect` in hooks such as `before`."
-        },
-        "RSpec/ExpectOutput": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for opportunities to use `expect { ... }.to output`."
-        },
-        "RSpec/FilePath": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "CustomTransform": {
-              "description": "Default: {\"RuboCop\"=>\"rubocop\", \"RSpec\"=>\"rspec\"}"
-            },
-            "IgnoreMethods": {
-              "type": "boolean",
-              "description": "Default: false"
-            }
-          },
-          "description": "Checks that spec file paths are consistent with the test subject."
-        },
-        "RSpec/Focus": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if examples are focused."
-        },
-        "RSpec/HookArgument": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: implicit"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: implicit, each, example"
-            }
-          },
-          "description": "Checks the arguments passed to `before`, `around`, and `after`."
-        },
-        "RSpec/HooksBeforeExamples": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for before/around/after hooks that come after an example."
-        },
-        "RSpec/ImplicitExpect": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: is_expected"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: is_expected, should"
-            }
-          },
-          "description": "Check that a consistent implicit expectation style is used."
-        },
-        "RSpec/ImplicitSubject": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: single_line_only"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: single_line_only, disallow"
-            }
-          },
-          "description": "Checks for usage of implicit subject (`is_expected` / `should`)."
-        },
-        "RSpec/InstanceSpy": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for `instance_double` used with `have_received`."
-        },
-        "RSpec/InstanceVariable": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "AssignmentOnly": {
-              "type": "boolean",
-              "description": "Default: false"
-            }
-          },
-          "description": "Checks for instance variable usage in specs."
         },
         "RSpec/InvalidPredicateMatcher": {
           "type": "object",
@@ -1248,78 +2282,6 @@
           },
           "description": "Checks invalid usage for predicate matcher."
         },
-        "RSpec/ItBehavesLike": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: it_behaves_like"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: it_behaves_like, it_should_behave_like"
-            }
-          },
-          "description": "Checks that only one `it_behaves_like` style is used."
-        },
-        "RSpec/LeadingSubject": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Enforce that subject is the first definition in the test."
-        },
         "RSpec/LetBeforeExamples": {
           "type": "object",
           "additionalProperties": true,
@@ -1352,254 +2314,6 @@
           },
           "description": "Checks for `let` definitions that come after an example."
         },
-        "RSpec/LetSetup": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks unreferenced `let!` calls being used for test setup."
-        },
-        "RSpec/MessageChain": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check that chains of messages are not being stubbed."
-        },
-        "RSpec/MessageExpectation": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: false"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: allow"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: allow, expect"
-            }
-          },
-          "description": "Checks for consistent message expectation style."
-        },
-        "RSpec/MessageSpies": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: have_received"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: have_received, receive"
-            }
-          },
-          "description": "Checks that message expectations are set using spies."
-        },
-        "RSpec/MissingExampleGroupArgument": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks that the first argument to an example group is not empty."
-        },
-        "RSpec/MultipleDescribes": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for multiple top level describes."
-        },
-        "RSpec/MultipleExpectations": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "Max": {
-              "type": "integer",
-              "description": "Default: 1"
-            },
-            "AggregateFailuresByDefault": {
-              "type": "boolean",
-              "description": "Default: false"
-            }
-          },
-          "description": "Checks if examples contain too many `expect` calls."
-        },
         "RSpec/MultipleSubjects": {
           "type": "object",
           "additionalProperties": true,
@@ -1631,306 +2345,6 @@
             }
           },
           "description": "Checks if an example group defines `subject` multiple times."
-        },
-        "RSpec/NamedSubject": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for explicitly referenced test subjects."
-        },
-        "RSpec/NestedGroups": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "Max": {
-              "type": "integer",
-              "description": "Default: 3"
-            }
-          },
-          "description": "Checks for nested example groups."
-        },
-        "RSpec/NotToNot": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "EnforcedStyle": {
-              "type": "string",
-              "description": "Default: not_to"
-            },
-            "SupportedStyles": {
-              "type": "array",
-              "description": "Default: not_to, to_not"
-            }
-          },
-          "description": "Checks for consistent method usage for negating expectations."
-        },
-        "RSpec/OverwritingSetup": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks if there is a let/subject that overwrites an existing one."
-        },
-        "RSpec/Pending": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: false"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for any pending or skipped examples."
-        },
-        "RSpec/ReceiveCounts": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check for `once` and `twice` receive counts matchers usage."
-        },
-        "RSpec/ReceiveNever": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Prefer `not_to receive(...)` over `receive(...).never`."
-        },
-        "RSpec/RepeatedDescription": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check for repeated description strings in example groups."
-        },
-        "RSpec/RepeatedExample": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Check for repeated examples within example groups."
         },
         "RSpec/ReturnFromStub": {
           "type": "object",
@@ -1971,198 +2385,6 @@
             }
           },
           "description": "Checks for consistent style of stub's return setting."
-        },
-        "RSpec/SharedContext": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for proper shared_context and shared_examples usage."
-        },
-        "RSpec/SharedExamples": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Enforces use of string to titleize shared examples."
-        },
-        "RSpec/SingleArgumentMessageChain": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks that chains of messages contain more than one element."
-        },
-        "RSpec/ScatteredLet": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for let scattered across the example group."
-        },
-        "RSpec/ScatteredSetup": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for setup scattered across multiple hooks in an example group."
-        },
-        "RSpec/SubjectStub": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            }
-          },
-          "description": "Checks for stubbed test subjects."
         },
         "RSpec/PredicateMatcher": {
           "type": "object",
@@ -2208,42 +2430,6 @@
           },
           "description": "Prefer using predicate matcher over using predicate method directly."
         },
-        "RSpec/VerifiedDoubles": {
-          "type": "object",
-          "additionalProperties": true,
-          "propertyNames": {
-            "$ref": "#/definitions/attributeName"
-          },
-          "properties": {
-            "Enabled": {
-              "type": "boolean",
-              "description": "Default: true"
-            },
-            "Exclude": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Include": {
-              "$ref": "#/definitions/listOfFiles"
-            },
-            "Severity": {
-              "$ref": "#/definitions/severity"
-            },
-            "Details": {
-              "type": "string"
-            },
-            "StyleGuideBaseURL": {
-              "type": "string"
-            },
-            "StyleGuide": {
-              "type": "string"
-            },
-            "IgnoreSymbolicNames": {
-              "type": "boolean",
-              "description": "Default: false"
-            }
-          },
-          "description": "Prefer using verifying doubles over normal doubles."
-        },
         "RSpec/VoidExpect": {
           "type": "object",
           "additionalProperties": true,
@@ -2276,6 +2462,89 @@
           },
           "description": "This cop checks void `expect()`."
         },
+        "FactoryGirl/DynamicAttributeDefinedStatically": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Prefer declaring dynamic attribute values in a block."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.17.0",
+    "diff": {
+      "properties": {
+        "Capybara/FeatureMethods": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for consistent method usage in feature specs."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.17.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.18.0",
+    "diff": {
+      "properties": {
         "Capybara/CurrentPathExpectation": {
           "type": "object",
           "additionalProperties": true,
@@ -2307,8 +2576,21 @@
             }
           },
           "description": "Checks that no expectations are set on Capybara's `current_path`."
-        },
-        "Capybara/FeatureMethods": {
+        }
+      }
+    }
+  },
+  {
+    "version": "1.19.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.20.0",
+    "diff": {
+      "properties": {
+        "FactoryGirl/DynamicAttributeDefinedStatically": null,
+        "RSpec/ContextWording": {
           "type": "object",
           "additionalProperties": true,
           "propertyNames": {
@@ -2337,14 +2619,14 @@
             "StyleGuide": {
               "type": "string"
             },
-            "EnabledMethods": {
+            "Prefixes": {
               "type": "array",
-              "description": "Default: "
+              "description": "Default: when, with"
             }
           },
-          "description": "Checks for consistent method usage in feature specs."
+          "description": "`context` block descriptions should start with 'when', or 'with'."
         },
-        "FactoryBot/AttributeDefinedStatically": {
+        "FactoryBot/DynamicAttributeDefinedStatically": {
           "type": "object",
           "additionalProperties": true,
           "propertyNames": {
@@ -2374,9 +2656,45 @@
               "type": "string"
             }
           },
-          "description": "Always declare attribute values as blocks."
-        },
-        "FactoryBot/CreateList": {
+          "description": "Prefer declaring dynamic attribute values in a block."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.20.1",
+    "diff": {
+      "properties": {
+        "RSpec/ContextWording": {
+          "properties": {
+            "Prefixes": {
+              "description": "Default: when, with, without"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.21.0",
+    "diff": {
+      "properties": {
+        "RSpec/MultipleExpectations": {
+          "properties": {
+            "AggregateFailuresByDefault": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.0",
+    "diff": {
+      "properties": {
+        "RSpec/ExampleWithoutDescription": {
           "type": "object",
           "additionalProperties": true,
           "propertyNames": {
@@ -2407,14 +2725,103 @@
             },
             "EnforcedStyle": {
               "type": "string",
-              "description": "Default: create_list"
+              "description": "Default: always_allow"
             },
             "SupportedStyles": {
               "type": "array",
-              "description": "Default: create_list, n_times"
+              "description": "Default: always_allow, single_line_only, disallow"
             }
           },
-          "description": "Checks for create_list usage."
+          "description": "Checks for examples without a description."
+        },
+        "RSpec/ExpectChange": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: method_call"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: method_call, block"
+            }
+          },
+          "description": "Checks for consistent style of change matcher."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.22.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.23.0",
+    "diff": {
+      "properties": {
+        "FactoryBot/StaticAttributeDefinedDynamically": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Prefer declaring static attribute values without a block."
         },
         "Rails/HttpStatus": {
           "type": "object",
@@ -2455,6 +2862,464 @@
             }
           },
           "description": "Enforces use of symbolic or numeric value to describe HTTP status."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.24.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.25.0",
+    "diff": {
+      "properties": {
+        "RSpec/Be": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check for expectations where `be` is used without argument."
+        },
+        "RSpec/Pending": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: false"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for any pending or skipped examples."
+        },
+        "RSpec/SharedExamples": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Enforces use of string to titleize shared examples."
+        },
+        "Capybara/FeatureMethods": {
+          "properties": {
+            "EnabledMethods": {
+              "type": "array",
+              "description": "Default: "
+            }
+          }
+        },
+        "FactoryBot/CreateList": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: create_list"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: create_list, n_times"
+            }
+          },
+          "description": "Checks for create_list usage."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.25.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.26.0",
+    "diff": {
+      "properties": {
+        "RSpec/ReceiveCounts": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Check for `once` and `twice` receive counts matchers usage."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.27.0",
+    "diff": {
+      "properties": {
+        "RSpec/EmptyLineAfterExampleGroup": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there is an empty line after example group blocks."
+        },
+        "RSpec/EmptyLineAfterHook": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks if there is an empty line after hook blocks."
+        },
+        "RSpec/LeadingSubject": {
+          "description": "Enforce that subject is the first definition in the test."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.28.0",
+    "diff": {
+      "properties": {
+        "FactoryBot/DynamicAttributeDefinedStatically": null,
+        "FactoryBot/StaticAttributeDefinedDynamically": null,
+        "RSpec/MissingExampleGroupArgument": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks that the first argument to an example group is not empty."
+        },
+        "RSpec/ReceiveNever": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Prefer `not_to receive(...)` over `receive(...).never`."
+        },
+        "FactoryBot/AttributeDefinedStatically": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Always declare attribute values as blocks."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.29.0",
+    "diff": {
+      "properties": {
+        "RSpec/HooksBeforeExamples": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for before/around/after hooks that come after an example."
+        },
+        "RSpec/ImplicitSubject": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "type": "string",
+              "description": "Default: single_line_only"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: single_line_only, disallow"
+            }
+          },
+          "description": "Checks for usage of implicit subject (`is_expected` / `should`)."
         }
       }
     }
@@ -3489,7 +4354,7 @@
               "type": "boolean"
             }
           },
-          "description": "Checks if an example group defines `subject` multiple times.\n\nThe autocorrect behavior for this cop depends on the type of duplication:\n\n - If multiple named subjects are defined then this probably indicates\nthat the overwritten subjects (all subjects except the last\ndefinition) are effectively being used to define helpers. In this\ncase they are replaced with let.\n\n - If multiple unnamed subjects are defined though then this can only\nbe dead code and we remove the overwritten subject definitions.\n\n - If subjects are defined with subject! then we don’t autocorrect.\nThis is enough of an edge case that people can just move this to\na before hook on their own"
+          "description": "Checks if an example group defines `subject` multiple times.\n\nThe autocorrect behavior for this cop depends on the type of duplication:\n\n - If multiple named subjects are defined then this probably indicates that the overwritten subjects (all subjects except the last definition) are effectively being used to define helpers. In this case they are replaced with let.\n\n - If multiple unnamed subjects are defined though then this can only be dead code and we remove the overwritten subject definitions.\n\n - If subjects are defined with subject! then we don’t autocorrect. This is enough of an edge case that people can just move this to a before hook on their own"
         },
         "RSpec/NamedSubject": {
           "description": "Checks for explicitly referenced test subjects.\n\nRSpec lets you declare an \"implicit subject\" using `+subject { ... }+` which allows for tests like `it { is_expected.to be_valid }`. If you need to reference your test subject you should explicitly name it using `+subject(:your_subject_name) { ... }+`. Your test subjects should be the most important object in your tests so they deserve a descriptive name.\n\nThis cop can be configured in your configuration using the `IgnoreSharedExamples` which will not report offenses for implicit subjects in shared example groups."
@@ -4487,6 +5352,80 @@
             }
           },
           "description": "Checks for long examples.\n\nA long example is usually more difficult to understand. Consider extracting out some behaviour, e.g. with a `let` block, or a helper method.\n\nYou can set literals you want to fold with `CountAsOne`. Available are: 'array', 'hash', and 'heredoc'. Each literal will be counted as one line regardless of its actual size."
+        }
+      }
+    }
+  },
+  {
+    "version": "2.4.0",
+    "diff": {
+      "properties": {
+        "RSpec/IdenticalEqualityAssertion": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Checks for equality assertions with identical expressions on both sides."
+        },
+        "RSpec/Rails/AvoidSetupHook": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "Checks that tests use RSpec `before` hook over Rails `setup` method."
         }
       }
     }
