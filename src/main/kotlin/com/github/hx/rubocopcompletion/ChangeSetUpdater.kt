@@ -60,11 +60,13 @@ class ChangeSetUpdater(private val changeSetsDir: Path, private val gemsDir: Pat
         class Failed(message: String) : Exception(message)
 
         fun run() {
-            Logger.info("Running in %s : %s %s".format(
-                workDir,
-                env.map { pair -> "${pair.key}=${pair.value}" }.joinToString(" "),
-                command.joinToString(" ")
-            ))
+            Logger.info(
+                "Running in %s : %s %s".format(
+                    workDir,
+                    env.map { pair -> "${pair.key}=${pair.value}" }.joinToString(" "),
+                    command.joinToString(" ")
+                )
+            )
 
             val process = builder.start()
 
