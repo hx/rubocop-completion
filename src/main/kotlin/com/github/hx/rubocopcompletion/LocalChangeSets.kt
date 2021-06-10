@@ -24,17 +24,27 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
         )
     }
 
+    private val changeSetsDir = directory.resolve("change_sets")
+    private val gemsDir = directory.resolve("gems")
+
     init {
-        if (!directory.exists()) {
-            Files.createDirectories(
-                directory,
-                PosixFilePermissions.asFileAttribute(
-                    PosixFilePermissions.fromString("rwxr-xr-x")
+        var ok = true
+        for (dir in setOf(changeSetsDir, gemsDir)) {
+            if (!dir.exists()) {
+                Files.createDirectories(
+                    dir,
+                    PosixFilePermissions.asFileAttribute(
+                        PosixFilePermissions.fromString("rwxr-xr-x")
+                    )
                 )
-            )
-        } else if (!directory.isDirectory()) {
-            Logger.error("LocalChangeSets expected a directory but got a file")
-        } else {
+            }
+            if (!dir.isDirectory()) {
+                Logger.error("LocalChangeSets expected $dir to be a directory")
+                ok = false
+            }
+        }
+
+        if (ok) {
             for (gemName in BuiltInChangeSets.knownGems) {
                 if (!hasChangeSetForGem(gemName)) {
                     pathForGem(gemName).write(BuiltInChangeSets.changeSetForGem(gemName)!!)
@@ -48,17 +58,17 @@ class LocalChangeSets(private val directory: Path) : ChangeSetProvider {
 
     private fun checkForUpdates() {
         runBackgroundableTask("Looking for new RuboCop docs") { progress ->
-            ChangeSetUpdater(directory).run(progress)
+            ChangeSetUpdater(changeSetsDir, gemsDir).run(progress)
         }
     }
 
     override fun changeSetForGem(gemName: String): String? {
-        if (!directory.exists() || !hasChangeSetForGem(gemName)) {
+        if (!changeSetsDir.exists() || !hasChangeSetForGem(gemName)) {
             return null
         }
         return pathForGem(gemName).readText()
     }
 
-    private fun pathForGem(gemName: String) = directory.resolve("$gemName.json")
+    private fun pathForGem(gemName: String) = changeSetsDir.resolve("$gemName.json")
     private fun hasChangeSetForGem(gemName: String) = pathForGem(gemName).exists()
 }

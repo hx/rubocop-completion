@@ -3,7 +3,7 @@ package com.github.hx.rubocopcompletion
 import com.intellij.openapi.progress.ProgressIndicator
 import java.nio.file.Path
 
-class ChangeSetUpdater(private val directory: Path) {
+class ChangeSetUpdater(private val changeSetsDir: Path, private val gemsDir: Path) {
     private val gemVersion = "0.1.5"
 
     @Suppress("MagicNumber", "SwallowedException")
@@ -17,7 +17,12 @@ class ChangeSetUpdater(private val directory: Path) {
 
             progress.fraction = 0.5
             progress.text = "Running RuboCop schema updater …"
-            cmd("rubocop-schema-gen", "_${gemVersion}_", "--build-repo=.")
+
+            val genPath = gemsDir
+                .resolve("bin")
+                .resolve("rubocop-schema-gen")
+                .toString()
+            cmd(genPath, "_${gemVersion}_", "--build-repo=.")
 
             progress.isIndeterminate = false
 
@@ -33,16 +38,33 @@ class ChangeSetUpdater(private val directory: Path) {
         }
     }
 
-    private fun cmd(vararg command: String) = Command(directory, *command).run()
+    private fun cmd(vararg command: String) = Command(
+        mapOf(
+            "GEM_HOME" to gemsDir.toString(),
+            "GEM_PATH" to gemsDir.toString()
+        ),
+        changeSetsDir,
+        *command
+    ).run()
 
     @Suppress("SwallowedException")
-    class Command(private val directory: Path, vararg val command: String) {
-        val builder = ProcessBuilder(*command).directory(directory.toFile())!!
+    class Command(private val env: Map<String, String>, private val workDir: Path, vararg val command: String) {
+        val builder = ProcessBuilder(*command).directory(workDir.toFile())!!
+
+        init {
+            for (x in env) {
+                builder.environment()[x.key] = x.value
+            }
+        }
 
         class Failed(message: String) : Exception(message)
 
         fun run() {
-            Logger.info("Running in %s : %s".format(directory, command.joinToString(" ")))
+            Logger.info("Running in %s : %s %s".format(
+                workDir,
+                env.map { pair -> "${pair.key}=${pair.value}" }.joinToString(" "),
+                command.joinToString(" ")
+            ))
 
             val process = builder.start()
 
