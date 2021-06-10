@@ -4,7 +4,7 @@ import com.intellij.openapi.progress.ProgressIndicator
 import java.nio.file.Path
 
 class ChangeSetUpdater(private val directory: Path) {
-    private val gemVersion = "0.1.4"
+    private val gemVersion = "0.1.5"
 
     @Suppress("MagicNumber", "SwallowedException")
     fun run(progress: ProgressIndicator) {
