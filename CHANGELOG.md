@@ -3,6 +3,7 @@
 # rubocop-completion Changelog
 
 ## [Unreleased]
+## [0.1.0]
 ### Fixed
 - Made installation of `rubocop-schema-gen` gem more reliable, especially on macOS.
 ### Added
