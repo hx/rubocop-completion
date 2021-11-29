@@ -35492,5 +35492,1111 @@
         }
       }
     }
+  },
+  {
+    "version": "1.17.0",
+    "diff": {
+      "properties": {
+        "Lint/LiteralAsCondition": {
+          "description": "This cop checks for literals used as the conditions or as operands in and/or expressions serving as the conditions of if/while/until/case-when/case-in."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.18.0",
+    "diff": {
+      "properties": {
+        "Bundler/GemVersion": {
+          "description": "Enforce that Gem version specifications or a commit reference (branch, ref, or tag) are either required or forbidden."
+        },
+        "Layout/LineEndStringConcatenationIndentation": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            },
+            "EnforcedStyle": {
+              "enum": [
+                "aligned",
+                "indented"
+              ],
+              "description": "Default: aligned"
+            },
+            "IndentationWidth": {
+              "type": "integer",
+              "description": "Default: <none>"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: aligned, indented"
+            }
+          },
+          "description": "This cop checks the indentation of the next line after a line that ends with a string literal and a backslash.\n\nIf `EnforcedStyle: aligned` is set, the concatenated string parts shall be aligned with the first part. There are some exceptions, such as implicit return values, where the concatenated string parts shall be indented regardless of `EnforcedStyle` configuration.\n\nIf `EnforcedStyle: indented` is set, it's the second line that shall be indented one step more than the first line. Lines 3 and forward shall be aligned with line 2. Here too there are exceptions. Values in a hash literal are always aligned."
+        },
+        "Naming/InclusiveLanguage": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "CheckIdentifiers": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckConstants": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckVariables": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckStrings": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckSymbols": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckComments": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "CheckFilepaths": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "FlaggedTerms": {
+              "description": "Default: {\"whitelist\"⇒{\"Regex\"⇒/white[-\\s]?list/, \"Suggestions\"⇒[\"allowlist\", \"permit\"]}, \"blacklist\"⇒{\"Regex\"⇒/black[-\\s]?list/, \"Suggestions\"⇒[\"denylist\", \"block\"]}, \"master\"⇒{\"Suggestions\"⇒[\"main\", \"primary\", \"leader\"], \"AllowedRegex\"⇒[\"Master of None\", \"Master Boot Record\"]}, \"slave\"⇒{\"Suggestions\"⇒[\"replica\", \"secondary\", \"follower\"]}}"
+            }
+          },
+          "description": "This cops recommends the use of inclusive language instead of problematic terms. The cop can check the following locations for offenses: - identifiers - constants - variables - strings - symbols - comments - file paths Each of these locations can be individually enabled/disabled via configuration, for example CheckIdentifiers = true/false.\n\nFlagged terms are configurable for the cop. For each flagged term an optional Regex can be specified to identify offenses. Suggestions for replacing a flagged term can be configured and will be displayed as part of the offense message. An AllowedRegex can be specified for a flagged term to exempt allowed uses of the term."
+        },
+        "Style/StringConcatenation": {
+          "properties": {
+            "Mode": {
+              "type": "string",
+              "description": "Default: aggressive"
+            }
+          },
+          "description": "This cop checks for places where string concatenation can be replaced with string interpolation.\n\nThe cop can autocorrect simple cases but will skip autocorrecting more complex cases where the resulting code would be harder to read. In those cases, it might be useful to extract statements to local variables or methods which you can then interpolate in a string.\n\nWhen concatenation between two strings is broken over multiple lines, this cop does not register an offense; instead, `Style/LineEndConcatenation` will pick up the offense if enabled.\n\nTwo modes are supported: 1. `aggressive` style checks and corrects all occurrences of `+` where either the left or right side of `+` is a string literal. 2. `conservative` style on the other hand, checks and corrects only if left side (receiver of `+` method call) is a string literal. This is useful when the receiver is some expression that returns string like `Pathname` instead of a string literal."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.18.1",
+    "diff": {
+      "properties": {
+        "Naming/InclusiveLanguage": {
+          "properties": {
+            "CheckStrings": {
+              "description": "Default: false"
+            },
+            "FlaggedTerms": {
+              "description": "Default: {\"whitelist\"⇒{\"Regex\"⇒/white[-\\s]?list/, \"Suggestions\"⇒[\"allowlist\", \"permit\"]}, \"blacklist\"⇒{\"Regex\"⇒/black[-\\s]?list/, \"Suggestions\"⇒[\"denylist\", \"block\"]}, \"slave\"⇒{\"Suggestions\"⇒[\"replica\", \"secondary\", \"follower\"]}}"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.18.2",
+    "diff": {
+      "properties": {
+        "Style/CommentAnnotation": {
+          "properties": {
+            "RequireColon": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.18.3",
+    "diff": {
+      "properties": {
+        "Style/FrozenStringLiteralComment": {
+          "description": "This cop is designed to help you transition from mutable string literals to frozen string literals. It will add the `# frozen_string_literal: true` magic comment to the top of files to enable frozen string literals. Frozen string literals may be default in future Ruby. The comment will be added below a shebang and encoding comment.\n\nNote that the cop will ignore files where the comment exists but is set to `false` instead of `true`.\n\nTo require a blank line after this comment, please see `Layout/EmptyLineAfterMagicComment` cop."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.18.4",
+    "diff": {
+      "properties": {
+        "Lint/DuplicateBranch": {
+          "description": "This cop checks that there are no repeated bodies within `if/unless`, `case-when`, `case-in` and `rescue` constructs.\n\nWith `IgnoreLiteralBranches: true`, branches are not registered as offenses if they return a basic literal value (string, symbol, integer, float, rational, complex, `true`, `false`, or `nil`), or return an array, hash, regexp or range that only contains one of the above basic literal values.\n\nWith `IgnoreConstantBranches: true`, branches are not registered as offenses if they return a constant value."
+        },
+        "Style/EvalWithLocation": {
+          "description": "This cop ensures that eval methods (`eval`, `instance_eval`, `class_eval` and `module_eval`) are given filename and line number values (`__FILE__` and `__LINE__`). This data is used to ensure that any errors raised within the evaluated code will be given the correct identification in a backtrace.\n\nThe cop also checks that the line number given relative to `__LINE__` is correct.\n\nThis cop will autocorrect incorrect or missing filename and line number values. However, if `eval` is called without a binding argument, the cop will not attempt to automatically add a binding, or add filename and line values.\n\nThis cop works only when a string literal is given as a code string. No offense is reported if a string variable is given as below:"
+        }
+      }
+    }
+  },
+  {
+    "version": "1.19.0",
+    "diff": {
+      "properties": {
+        "Layout/LineEndStringConcatenationIndentation": {
+          "description": "This cop checks the indentation of the next line after a line that ends with a string literal and a backslash.\n\nIf `EnforcedStyle: aligned` is set, the concatenated string parts shall be aligned with the first part. There are some exceptions, such as implicit return values, where the concatenated string parts shall be indented regardless of `EnforcedStyle` configuration.\n\nIf `EnforcedStyle: indented` is set, it's the second line that shall be indented one step more than the first line. Lines 3 and forward shall be aligned with line 2."
+        },
+        "Lint/AmbiguousRange": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "RequireParenthesesForMethodChains": {
+              "type": "boolean",
+              "description": "Default: false"
+            },
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop checks for ambiguous ranges.\n\nRanges have quite low precedence, which leads to unexpected behaviour when using a range with other operators. This cop avoids that by making ranges explicit by requiring parenthesis around complex range boundaries (anything that is not a basic literal: numerics, strings, symbols, etc.).\n\nThe cop auto-corrects by wrapping the entire boundary in parentheses, which makes the outcome more explicit but is possible to not be the intention of the programmer. For this reason, this cop's auto-correct is marked as unsafe (it will not change the behaviour of the code, but will not necessarily match the intent of the program).\n\nThis cop can be configured with `RequireParenthesesForMethodChains` in order to specify whether method chains (including `self.foo`) should be wrapped in parens by this cop.\n\nRegardless of this configuration, if a method receiver is a basic literal value, it will be wrapped in order to prevent the ambiguity of `1..2.to_a`."
+        },
+        "Lint/MultipleComparison": {
+          "properties": {
+            "AllowMethodComparison": null
+          }
+        },
+        "Naming/InclusiveLanguage": {
+          "properties": {
+            "FlaggedTerms": {
+              "description": "Default: {\"whitelist\"⇒{\"Regex\"⇒/white[-\\s]?list/, \"Suggestions\"⇒[\"allowlist\", \"permit\"]}, \"blacklist\"⇒{\"Regex\"⇒/black[-\\s]?list/, \"Suggestions\"⇒[\"denylist\", \"block\"]}, \"slave\"⇒{\"WholeWord\"⇒true, \"Suggestions\"⇒[\"replica\", \"secondary\", \"follower\"]}}"
+            }
+          },
+          "description": "This cops recommends the use of inclusive language instead of problematic terms. The cop can check the following locations for offenses: - identifiers - constants - variables - strings - symbols - comments - file paths Each of these locations can be individually enabled/disabled via configuration, for example CheckIdentifiers = true/false.\n\nFlagged terms are configurable for the cop. For each flagged term an optional Regex can be specified to identify offenses. Suggestions for replacing a flagged term can be configured and will be displayed as part of the offense message. An AllowedRegex can be specified for a flagged term to exempt allowed uses of the term. `WholeWord: true` can be set on a flagged term to indicate the cop should only match when a term matches the whole word (partial matches will not be offenses)."
+        },
+        "Style/BlockDelimiters": {
+          "description": "Check for uses of braces or do/end around single line or multi-line blocks.\n\nMethods that can be either procedural or functional and cannot be categorised from their usage alone is ignored. `lambda`, `proc`, and `it` are their defaults. Additional methods can be added to the `IgnoredMethods`."
+        },
+        "Style/CommentedKeyword": {
+          "properties": {
+            "AutoCorrect": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop checks for comments put on the same line as some keywords. These keywords are: `class`, `module`, `def`, `begin`, `end`.\n\nNote that some comments (`:nodoc:`, `:yields:`, `rubocop:disable` and `rubocop:todo`) are allowed.\n\nAuto-correction removes comments from `end` keyword and keeps comments for `class`, `module`, `def` and `begin` above the keyword. It is marked as unsafe auto-correction as it may remove meaningful comments."
+        },
+        "Style/IdenticalConditionalBranches": {
+          "properties": {
+            "AutoCorrect": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop checks for identical expressions at the beginning or end of each branch of a conditional expression. Such expressions should normally be placed outside the conditional expression - before or after it.\n\nThis cop is marked unsafe auto-correction as the order of method invocations must be guaranteed in the following case:\n\nif method_that_modifies_global_state # 1   method_that_relies_on_global_state # 2   foo                                # 3 else   method_that_relies_on_global_state # 2   bar                                # 3 end\n\nIn such a case, auto-correction may change the invocation order.\n\nThe cop is poorly named and some people might think that it actually checks for duplicated conditional branches. The name will probably be changed in a future major RuboCop release."
+        },
+        "Style/MissingElse": {
+          "description": "Checks for `if` expressions that do not have an `else` branch.\n\nPattern matching is allowed to have no `else` branch because unlike `if` and `case`, it raises `NoMatchingPatternError` if the pattern doesn't match and without having `else`.\n\nSupported styles are: if, case, both."
+        },
+        "Style/MultipleComparison": {
+          "properties": {
+            "AllowMethodComparison": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          }
+        },
+        "Style/OptionHash": {
+          "properties": {
+            "Allowlist": {
+              "type": "array",
+              "description": "Default: []"
+            }
+          }
+        },
+        "Style/RedundantSelfAssignmentBranch": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for places where conditional branch makes redundant self-assignment."
+        },
+        "Style/SpecialGlobalVars": {
+          "properties": {
+            "RequireEnglish": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          },
+          "description": "This cop looks for uses of Perl-style global variables. Correcting to global variables in the 'English' library will add a require statement to the top of the file if enabled by RequireEnglish config."
+        },
+        "Style/WordArray": {
+          "description": "This cop can check for array literals made up of word-like strings, that are not using the %w() syntax.\n\nAlternatively, it can check for uses of the %w() syntax, in projects which do not want to include that syntax.\n\nWhen using the `percent` style, %w() arrays containing a space will be registered as offenses.\n\nConfiguration option: MinSize If set, arrays with fewer elements than this value will not trigger the cop. For example, a `MinSize` of `3` will not enforce a style on an array of 2 or fewer elements."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.19.1",
+    "diff": {
+      "properties": {
+        "Style/RedundantSelfAssignmentBranch": {
+          "description": "This cop checks for places where conditional branch makes redundant self-assignment.\n\nIt only detects local variable because it may replace state of instance variable, class variable, and global variable that have state across methods with `nil`."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.20.0",
+    "diff": {
+      "properties": {
+        "Bundler/GemFilename": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: true"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: **/Gemfile, **/gems.rb, **/Gemfile.lock, **/gems.locked"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "enum": [
+                "Gemfile",
+                "gems.rb"
+              ],
+              "description": "Default: Gemfile"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: Gemfile, gems.rb"
+            }
+          },
+          "description": "This cop verifies that a project contains Gemfile or gems.rb file and correct associated lock file based on the configuration."
+        },
+        "Layout/MultilineMethodArgumentLineBreaks": {
+          "description": "This cop ensures that each argument in a multi-line method call starts on a separate line.\n\nthis cop does not move the first argument, if you want that to be on a separate line, see `Layout/FirstMethodArgumentLineBreak`."
+        },
+        "Lint/Debugger": {
+          "properties": {
+            "DebuggerMethods": {
+              "description": "Default: {\"Kernel\"⇒[\"binding.irb\"], \"Byebug\"⇒[\"byebug\", \"remote_byebug\", \"Kernel.byebug\", \"Kernel.remote_byebug\"], \"Capybara\"⇒[\"save_and_open_page\", \"save_and_open_screenshot\"], \"debug.rb\"⇒[\"binding.b\", \"binding.break\", \"Kernel.binding.b\", \"Kernel.binding.break\"], \"Pry\"⇒[\"binding.pry\", \"binding.remote_pry\", \"binding.pry_remote\", \"Pry.rescue\"], \"Rails\"⇒[\"debugger\", \"Kernel.debugger\"], \"RubyJard\"⇒[\"jard\"], \"WebConsole\"⇒[\"binding.console\"]}"
+            }
+          },
+          "description": "This cop checks for debug calls (such as `debugger` or `binding.pry`) that should not be kept for production code.\n\nThe cop can be configured using `DebuggerMethods`. By default, a number of gems debug entrypoints are configured (`Kernel`, `Byebug`, `Capybara`, `debug.rb`, `Pry`, `Rails`, `RubyJard`, and `WebConsole`). Additional methods can be added.\n\nSpecific default groups can be disabled if necessary:\n\nLint/Debugger:   WebConsole: ~"
+        },
+        "Style/CommentAnnotation": {
+          "description": "This cop checks that comment annotation keywords are written according to guidelines.\n\nAnnotation keywords can be specified by overriding the cop's `Keywords` configuration. Keywords are allowed to be single words or phrases.\n\nWith a multiline comment block (where each line is only a comment), only the first line will be able to register an offense, even if an annotation keyword starts another line. This is done to prevent incorrect registering of keywords (eg. `review`) inside a paragraph as an annotation."
+        },
+        "Style/MutableConstant": {
+          "description": "This cop checks whether some constant value isn't a mutable literal (e.g. array or hash).\n\nStrict mode can be used to freeze all constants, rather than just literals. Strict mode is considered an experimental feature. It has not been updated with an exhaustive list of all methods that will produce frozen objects so there is a decent chance of getting some false positives. Luckily, there is no harm in freezing an already frozen object.\n\nFrom Ruby 3.0, this cop honours the magic comment 'shareable_constant_value'. When this magic comment is set to any acceptable value other than none, it will suppress the offenses raised by this cop. It enforces frozen state.\n\nRegexp and Range literals are frozen objects since Ruby 3.0.\n\nFrom Ruby 3.0, this cop allows explicit freezing of interpolated string literals when `# frozen-string-literal: true` is used.\n\nThis special directive helps to create constants that hold only immutable objects, or Ractor-shareable constants. - ruby docs"
+        },
+        "Style/RedundantFreeze": {
+          "description": "This cop check for uses of `Object#freeze` on immutable objects.\n\nRegexp and Range literals are frozen objects since Ruby 3.0.\n\nFrom Ruby 3.0, this cop allows explicit freezing of interpolated string literals when `# frozen-string-literal: true` is used."
+        },
+        "Style/StructInheritance": {
+          "properties": {
+            "AutoCorrect": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop checks for inheritance from Struct.new.\n\nIt is marked as unsafe auto-correction because it will change the inheritance tree (e.g. return value of `Module#ancestors`)."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.21.0",
+    "diff": {
+      "properties": {
+        "Bundler/InsecureProtocolSource": {
+          "description": "Passing symbol arguments to `source` (e.g. `source :rubygems`) is deprecated because they default to using HTTP requests. Instead, specify `'https://rubygems.org'` if possible, or `'http://rubygems.org'` if not.\n\nWhen autocorrecting, this cop will replace symbol arguments with `'https://rubygems.org'`.\n\nThis cop will not replace existing sources that use `http://`. This may be necessary where HTTPS is not available. For example, where using an internal gem server via an intranet, or where HTTPS is prohibited. However, you should strongly prefer `https://` where possible, as it is more secure."
+        },
+        "Layout/LineLength": {
+          "properties": {
+            "AutoCorrect": {
+              "description": null
+            }
+          }
+        },
+        "Lint/AmbiguousOperatorPrecedence": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop looks for expressions containing multiple binary operators where precedence is ambiguous due to lack of parentheses. For example, in `1 + 2 * 3`, the multiplication will happen before the addition, but lexically it appears that the addition will happen first.\n\nThe cop does not consider unary operators (ie. `!a` or `-b`) or comparison operators (ie. `a =~ b`) because those are not ambiguous.\n\nRanges are handled by `Lint/AmbiguousRange`."
+        },
+        "Lint/IncompatibleIoSelectWithFiberScheduler": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for `IO.select` that is incompatible with Fiber Scheduler since Ruby 3.0."
+        },
+        "Naming/InclusiveLanguage": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: false"
+            }
+          }
+        },
+        "Style/AndOr": {
+          "properties": {
+            "AutoCorrect": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop checks for uses of `and` and `or`, and suggests using `&&` and `||` instead. It can be configured to check only in conditions or in all contexts.\n\nIt is marked as unsafe auto-correction because it may change the operator precedence between logical operators (`&&` and `||`) and semantic operators (`and` and `or`)."
+        },
+        "Style/AsciiComments": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: false"
+            }
+          }
+        },
+        "Style/CaseEquality": {
+          "description": "This cop checks for uses of the case equality operator(===).\n\nIf `AllowOnConstant` option is enabled, the cop will ignore violations when the receiver of the case equality operator is a constant."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.0",
+    "diff": {
+      "properties": {
+        "Bundler/InsecureProtocolSource": {
+          "properties": {
+            "AllowHttpProtocol": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          },
+          "description": "Passing symbol arguments to `source` (e.g. `source :rubygems`) is deprecated because they default to using HTTP requests. Instead, specify `'https://rubygems.org'` if possible, or `'http://rubygems.org'` if not.\n\nWhen autocorrecting, this cop will replace symbol arguments with `'https://rubygems.org'`.\n\nThis cop will not replace existing sources that use `http://`. This may be necessary where HTTPS is not available. For example, where using an internal gem server via an intranet, or where HTTPS is prohibited. However, you should strongly prefer `https://` where possible, as it is more secure.\n\nIf you don't allow `http://`, please set `false` to `AllowHttpProtocol`. This option is `true` by default for safe autocorrection."
+        },
+        "Layout/SpaceInsideParens": {
+          "properties": {
+            "EnforcedStyle": {
+              "enum": [
+                "space",
+                "compact",
+                "no_space"
+              ]
+            },
+            "SupportedStyles": {
+              "description": "Default: space, compact, no_space"
+            }
+          }
+        },
+        "Lint/AmbiguousRange": {
+          "description": "This cop checks for ambiguous ranges.\n\nRanges have quite low precedence, which leads to unexpected behaviour when using a range with other operators. This cop avoids that by making ranges explicit by requiring parenthesis around complex range boundaries (anything that is not a basic literal: numerics, strings, symbols, etc.).\n\nThis cop can be configured with `RequireParenthesesForMethodChains` in order to specify whether method chains (including `self.foo`) should be wrapped in parens by this cop.\n\nRegardless of this configuration, if a method receiver is a basic literal value, it will be wrapped in order to prevent the ambiguity of `1..2.to_a`."
+        },
+        "Lint/BinaryOperatorWithIdenticalOperands": {
+          "description": "This cop checks for places where binary operator has identical operands.\n\nIt covers arithmetic operators: `-`, `/`, `%`; comparison operators: `==`, `===`, `=~`, `>`, `>=`, `<`, `<=`; bitwise operators: `|`, `^`, `&`; boolean operators: `&&`, `||` and \"spaceship\" operator - `<=>`.\n\nSimple arithmetic operations are allowed by this cop: `+`, `*`, `**`, `<<` and `>>`. Although these can be rewritten in a different way, it should not be necessary to do so. This does not include operations such as `-` or `/` where the result will always be the same (`x - x` will always be 0; `x / x` will always be 1), and thus are legitimate offenses."
+        },
+        "Lint/BooleanSymbol": {
+          "properties": {
+            "Safe": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        },
+        "Lint/DisjunctiveAssignmentInConstructor": {
+          "description": "This cop checks constructors for disjunctive assignments (`||=`) that should be plain assignments.\n\nSo far, this cop is only concerned with disjunctive assignment of instance variables.\n\nIn ruby, an instance variable is nil until a value is assigned, so the disjunction is unnecessary. A plain assignment has the same effect."
+        },
+        "Lint/HashCompareByIdentity": {
+          "description": "Prefer using `Hash#compare_by_identity` rather than using `object_id` for hash keys.\n\nThis cop looks for hashes being keyed by objects' `object_id`, using one of these methods: `key?`, `has_key?`, `fetch`, `[]` and `[]=`."
+        },
+        "Lint/Loop": {
+          "description": "This cop checks for uses of `begin...end while/until something`."
+        },
+        "Lint/NumberedParameterAssignment": {
+          "description": "This cop checks for uses of numbered parameter assignment. It emulates the following warning in Ruby 2.7:\n\n  % ruby -ve '_1 = :value'\n  ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin19]\n  -e:1: warning: `_1' is reserved for numbered parameter; consider another name\n\nAssigning to a numbered parameter (from `_1` to `_9`) causes an error in Ruby 3.0.\n\n  % ruby -ve '_1 = :value'\n  ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [x86_64-darwin19]\n  -e:1: _1 is reserved for numbered parameter\n\nThe parametered parameters are from `_1` to `_9`. This cop checks `_0`, and over `_10` as well to prevent confusion."
+        },
+        "Lint/OrAssignmentToConstant": {
+          "description": "This cop checks for unintended or-assignment to a constant.\n\nConstants should always be assigned in the same location. And its value should always be the same. If constants are assigned in multiple locations, the result may vary depending on the order of `require`."
+        },
+        "Lint/RedundantSafeNavigation": {
+          "description": "This cop checks for redundant safe navigation calls. `instance_of?`, `kind_of?`, `is_a?`, `eql?`, `respond_to?`, and `equal?` methods are checked by default. These are customizable with `AllowedMethods` option.\n\nIn the example below, the safe navigation operator (`&.`) is unnecessary because `NilClass` has methods like `respond_to?` and `is_a?`."
+        },
+        "Lint/RequireRelativeSelfPath": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "Checks for uses a file requiring itself with `require_relative`."
+        },
+        "Lint/ShadowingOuterLocalVariable": {
+          "description": "This cop checks for the use of local variable names from an outer scope in block arguments or block-local variables. This mirrors the warning given by `ruby -cw` prior to Ruby 2.6: \"shadowing outer local variable - foo\".\n\nShadowing of variables in block passed to `Ractor.new` is allowed because `Ractor` should not access outer variables. eg. following style is encouraged:\n\n  worker_id, pipe = env\n  Ractor.new(worker_id, pipe) do |worker_id, pipe|\n  end"
+        },
+        "Lint/TripleQuotes": {
+          "description": "This cop checks for \"triple quotes\" (strings delimited by any odd number of quotes greater than 1).\n\nRuby allows multiple strings to be implicitly concatenated by just being adjacent in a statement (ie. `\"foo\"\"bar\" == \"foobar\"`). This sometimes gives the impression that there is something special about triple quotes, but in fact it is just extra unnecessary quotes and produces the same string. Each pair of quotes produces an additional concatenated empty string, so the result is still only the \"actual\" string within the delimiters.\n\nAlthough this cop is called triple quotes, the same behavior is present for strings delimited by 5, 7, etc. quotation marks."
+        },
+        "Lint/UnexpectedBlockArity": {
+          "description": "This cop checks for a block that is known to need more positional block arguments than are given (by default this is configured for `Enumerable` methods needing 2 arguments). Optional arguments are allowed, although they don't generally make sense as the default value will be used. Blocks that have no receiver, or take splatted arguments (ie. `*args`) are always accepted.\n\nKeyword arguments (including `**kwargs`) do not get counted towards this, as they are not used by the methods in question.\n\nMethod names and their expected arity can be configured like this:\n\nMethods:   inject: 2   reduce: 2"
+        },
+        "Lint/UselessMethodDefinition": {
+          "description": "This cop checks for useless method definitions, specifically: empty constructors and methods just delegating to `super`."
+        },
+        "Lint/UselessSetterCall": {
+          "description": "This cop checks for setter call to local variable as the final expression of a function definition."
+        },
+        "Lint/UselessTimes": {
+          "description": "This cop checks for uses of `Integer#times` that will never yield (when the integer <= 0) or that will only ever yield once (`1.times`)."
+        },
+        "Metrics/AbcSize": {
+          "description": "This cop checks that the ABC size of methods is not higher than the configured maximum. The ABC size is based on assignments, branches (method calls), and conditions. See http://c2.com/cgi/wiki?AbcMetric and https://en.wikipedia.org/wiki/ABC_Software_Metric.\n\nInterpreting ABC size:\n\n - ⇐ 17 satisfactory\n\n - 18..30 unsatisfactory\n\n - > 30 dangerous\n\nYou can have repeated \"attributes\" calls count as a single \"branch\". For this purpose, attributes are any method with no argument; no attempt is meant to distinguish actual `attr_reader` from other methods.\n\nThis cop also takes into account `IgnoredMethods` (defaults to `[]`)"
+        },
+        "Naming/MemoizedInstanceVariableName": {
+          "description": "This cop checks for memoized methods whose instance variable name does not match the method name. Applies to both regular methods (defined with `def`) and dynamic methods (defined with `define_method` or `define_singleton_method`).\n\nThis cop can be configured with the EnforcedStyleForLeadingUnderscores directive. It can be configured to allow for memoized instance variables prefixed with an underscore. Prefixing ivars with an underscore is a convention that is used to implicitly indicate that an ivar should not be set or referenced outside of the memoization method."
+        },
+        "Security/IoMethods": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Safe": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "Checks for the first argument to `IO.read`, `IO.binread`, `IO.write`, `IO.binwrite`, `IO.foreach`, and `IO.readlines`.\n\nIf argument starts with a pipe character (`'|'`) and the receiver is the `IO` class, a subprocess is created in the same way as `Kernel#open`, and its output is returned. `Kernel#open` may allow unintentional command injection, which is the reason these `IO` methods are a security risk. Consider to use `File.read` to disable the behavior of subprocess invocation."
+        },
+        "Security/JSONLoad": {
+          "description": "This cop checks for the use of JSON class methods which have potential security issues."
+        },
+        "Style/AndOr": {
+          "description": "This cop checks for uses of `and` and `or`, and suggests using `&&` and `||` instead. It can be configured to check only in conditions or in all contexts."
+        },
+        "Style/ArrayCoercion": {
+          "description": "This cop enforces the use of `Array()` instead of explicit `Array` check or `[*var]`.\n\nThe cop is disabled by default due to safety concerns."
+        },
+        "Style/CollectionCompact": {
+          "description": "This cop checks for places where custom logic on rejection nils from arrays and hashes can be replaced with `{Array,Hash}#{compact,compact!}`."
+        },
+        "Style/CollectionMethods": {
+          "description": "This cop enforces the use of consistent method names from the Enumerable module.\n\nYou can customize the mapping from undesired method to desired method.\n\ne.g. to use `detect` over `find`:\n\n  Style/CollectionMethods:\n    PreferredMethods:\n      find: detect"
+        },
+        "Style/CombinableLoops": {
+          "description": "This cop checks for places where multiple consecutive loops over the same data can be combined into a single loop. It is very likely that combining them will make the code more efficient and more concise."
+        },
+        "Style/CommentedKeyword": {
+          "description": "This cop checks for comments put on the same line as some keywords. These keywords are: `class`, `module`, `def`, `begin`, `end`.\n\nNote that some comments (`:nodoc:`, `:yields:`, `rubocop:disable` and `rubocop:todo`) are allowed.\n\nAuto-correction removes comments from `end` keyword and keeps comments for `class`, `module`, `def` and `begin` above the keyword."
+        },
+        "Style/DoubleNegation": {
+          "description": "This cop checks for uses of double negation (`!!`) to convert something to a boolean value.\n\nWhen using `EnforcedStyle: allowed_in_returns`, allow double negation in contexts that use boolean as a return value. When using `EnforcedStyle: forbidden`, double negation should be forbidden always.\n\nwhen `something` is a boolean value `!!something` and `!something.nil?` are not the same thing. As you're unlikely to write code that can accept values of any type this is rarely a problem in practice."
+        },
+        "Style/FloatDivision": {
+          "description": "This cop checks for division with integers coerced to floats. It is recommended to either always use `fdiv` or coerce one side only. This cop also provides other options for code consistency."
+        },
+        "Style/FrozenStringLiteralComment": {
+          "description": "This cop is designed to help you transition from mutable string literals to frozen string literals. It will add the `# frozen_string_literal: true` magic comment to the top of files to enable frozen string literals. Frozen string literals may be default in future Ruby. The comment will be added below a shebang and encoding comment.\n\nNote that the cop will accept files where the comment exists but is set to `false` instead of `true`.\n\nTo require a blank line after this comment, please see `Layout/EmptyLineAfterMagicComment` cop."
+        },
+        "Style/HashTransformKeys": {
+          "description": "This cop looks for uses of `_.each_with_object({}) {...}`, `_.map {...}.to_h`, and `Hash[_.map {...}]` that are actually just transforming the keys of a hash, and tries to use a simpler & faster call to `transform_keys` instead."
+        },
+        "Style/HashTransformValues": {
+          "description": "This cop looks for uses of `_.each_with_object({}) {...}`, `_.map {...}.to_h`, and `Hash[_.map {...}]` that are actually just transforming the values of a hash, and tries to use a simpler & faster call to `transform_values` instead."
+        },
+        "Style/IdenticalConditionalBranches": {
+          "description": "This cop checks for identical expressions at the beginning or end of each branch of a conditional expression. Such expressions should normally be placed outside the conditional expression - before or after it.\n\nThe cop is poorly named and some people might think that it actually checks for duplicated conditional branches. The name will probably be changed in a future major RuboCop release."
+        },
+        "Style/IfWithBooleanLiteralBranches": {
+          "description": "This cop checks for redundant `if` with boolean literal branches. It checks only conditions to return boolean value (`true` or `false`) for safe detection. The conditions to be checked are comparison methods, predicate methods, and double negative."
+        },
+        "Style/InfiniteLoop": {
+          "description": "Use `Kernel#loop` for infinite loops."
+        },
+        "Style/InverseMethods": {
+          "description": "This cop check for usages of not (`not` or `!`) called on a method when an inverse of that method can be used instead.\n\nMethods that can be inverted by a not (`not` or `!`) should be defined in `InverseMethods`.\n\nMethods that are inverted by inverting the return of the block that is passed to the method should be defined in `InverseBlocks`."
+        },
+        "Style/ModuleFunction": {
+          "description": "This cop checks for use of `extend self` or `module_function` in a module.\n\nSupported styles are: module_function, extend_self, forbidden. `forbidden` style prohibits the usage of both styles.\n\nthe cop won't be activated when the module contains any private methods."
+        },
+        "Style/MutableConstant": {
+          "description": "This cop checks whether some constant value isn't a mutable literal (e.g. array or hash).\n\nStrict mode can be used to freeze all constants, rather than just literals. Strict mode is considered an experimental feature. It has not been updated with an exhaustive list of all methods that will produce frozen objects so there is a decent chance of getting some false positives. Luckily, there is no harm in freezing an already frozen object.\n\nFrom Ruby 3.0, this cop honours the magic comment 'shareable_constant_value'. When this magic comment is set to any acceptable value other than none, it will suppress the offenses raised by this cop. It enforces frozen state.\n\nRegexp and Range literals are frozen objects since Ruby 3.0.\n\nFrom Ruby 3.0, interpolated strings are not frozen when `# frozen-string-literal: true` is used, so this cop enforces explicit freezing for such strings.\n\nFrom Ruby 3.0, this cop allows explicit freezing of constants when the `shareable_constant_value` directive is used."
+        },
+        "Style/NumberedParameters": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "EnforcedStyle": {
+              "enum": [
+                "allow_single_line",
+                "disallow"
+              ],
+              "description": "Default: allow_single_line"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: allow_single_line, disallow"
+            }
+          },
+          "description": "This cop checks for numbered parameters.\n\nIt can either restrict the use of numbered parameters to single-lined blocks, or disallow completely numbered parameters."
+        },
+        "Style/NumberedParametersLimit": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Max": {
+              "type": "integer",
+              "description": "Default: 1"
+            }
+          },
+          "description": "This cop detects use of an excessive amount of numbered parameters in a single block. Having too many numbered parameters can make code too cryptic and hard to read.\n\nThe cop defaults to registering an offense if there is more than 1 numbered parameter but this maximum can be configured by setting `Max`."
+        },
+        "Style/PreferredHashMethods": {
+          "description": "This cop checks for uses of methods `Hash#has_key?` and `Hash#has_value?`, and suggests using `Hash#key?` and `Hash#value?` instead.\n\nIt is configurable to enforce the verbose method names, by using the `EnforcedStyle: verbose` configuration."
+        },
+        "Style/RedundantArgument": {
+          "description": "This cop checks for a redundant argument passed to certain methods.\n\nThis cop is limited to methods with single parameter.\n\nMethod names and their redundant arguments can be configured like this:\n\nMethods:   join: ''   split: ' '   chomp: \"\\n\"   chomp!: \"\\n\"   foo: 2"
+        },
+        "Style/RedundantSelfAssignment": {
+          "description": "This cop checks for places where redundant assignments are made for in place modification methods."
+        },
+        "Style/RedundantSort": {
+          "properties": {
+            "AutoCorrect": null,
+            "Safe": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        },
+        "Style/SafeNavigation": {
+          "description": "This cop transforms usages of a method call safeguarded by a non `nil` check for the variable whose method is being called to safe navigation (`&.`). If there is a method chain, all of the methods in the chain need to be checked for safety, and all of the methods will need to be changed to use safe navigation. We have limited the cop to not register an offense for method chains that exceed 2 methods.\n\nThe default for `ConvertCodeThatCanStartToReturnNil` is `false`. When configured to `true`, this will check for code in the format `!foo.nil? && foo.bar`. As it is written, the return of this code is limited to `false` and whatever the return of the method is. If this is converted to safe navigation, `foo&.bar` can start returning `nil` as well as what the method returns."
+        },
+        "Style/SelectByRegexp": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "This cop looks for places where an subset of an array is calculated based on a `Regexp` match, and suggests `grep` or `grep_v` instead.\n\n`grep` and `grep_v` were optimized when used without a block in Ruby 3.0, but may be slower in previous versions. See https://bugs.ruby-lang.org/issues/17030"
+        },
+        "Style/StaticClass": {
+          "description": "This cop checks for places where classes with only class methods can be replaced with a module. Classes should be used only when it makes sense to create instances out of them."
+        },
+        "Style/StringChars": {
+          "description": "Checks for uses of `String#split` with empty string or regexp literal argument."
+        },
+        "Style/StructInheritance": {
+          "description": "This cop checks for inheritance from Struct.new."
+        },
+        "Style/SwapValues": {
+          "description": "This cop enforces the use of shorthand-style swapping of 2 variables."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.1",
+    "diff": {
+      "properties": {
+        "Style/QuotedSymbols": {
+          "description": "Checks if the quotes used for quoted symbols match the configured defaults. By default uses the same configuration as `Style/StringLiterals`; if that cop is not enabled, the default `EnforcedStyle` is `single_quotes`.\n\nString interpolation is always kept in double quotes.\n\nNote: `Lint/SymbolConversion` can be used in parallel to ensure that symbols are not quoted that don't need to be. This cop is for configuring the quoting style to use for symbols that require quotes."
+        },
+        "Style/SelectByRegexp": {
+          "description": "This cop looks for places where an subset of an Enumerable (array, range, set, etc.; see note below) is calculated based on a `Regexp` match, and suggests `grep` or `grep_v` instead.\n\nHashes do not behave as you may expect with `grep`, which means that `hash.grep` is not equivalent to `hash.select`. Although RuboCop is limited by static analysis, this cop attempts to avoid registering an offense when the receiver is a hash (hash literal, `Hash.new`, `Hash#[]`, or `to_h`/`to_hash`).\n\n`grep` and `grep_v` were optimized when used without a block in Ruby 3.0, but may be slower in previous versions. See https://bugs.ruby-lang.org/issues/17030"
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.2",
+    "diff": {
+      "properties": {
+        "Gemspec/RequiredRubyVersion": {
+          "description": "Checks that `required_ruby_version` in a gemspec file is set to a valid value (non-blank) and matches `TargetRubyVersion` as set in RuboCop's configuration for the gem.\n\nThis ensures that RuboCop is using the same Ruby version as the gem."
+        },
+        "Metrics/ParameterLists": {
+          "description": "This cop checks for methods with too many parameters.\n\nThe maximum number of parameters is configurable. Keyword arguments can optionally be excluded from the total count, as they add less complexity than positional or optional parameters.\n\nExplicit block argument `&block` is not counted to prevent       erroneous change that is avoided by making block argument implicit.\n\nThis cop also checks for the maximum number of optional parameters. This can be configured using the `MaxOptionalParameters` config option."
+        },
+        "Security/JSONLoad": {
+          "properties": {
+            "AutoCorrect": null
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.22.3",
+    "diff": {
+      "properties": {
+        "Lint/DeprecatedConstants": {
+          "properties": {
+            "DeprecatedConstants": {
+              "description": "Default: {\"NIL\"⇒{\"Alternative\"⇒\"nil\", \"DeprecatedVersion\"⇒\"2.4\"}, \"TRUE\"⇒{\"Alternative\"⇒\"true\", \"DeprecatedVersion\"⇒\"2.4\"}, \"FALSE\"⇒{\"Alternative\"⇒\"false\", \"DeprecatedVersion\"⇒\"2.4\"}, \"Net::HTTPServerException\"⇒{\"Alternative\"⇒\"Net::HTTPClientException\", \"DeprecatedVersion\"⇒\"2.6\"}, \"Random::DEFAULT\"⇒{\"Alternative\"⇒\"Random.new\", \"DeprecatedVersion\"⇒\"3.0\"}}"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "1.23.0",
+    "diff": {
+      "properties": {
+        "AllCops": {
+          "properties": {
+            "SuggestExtensions": {
+              "description": "Default: {\"rubocop-rails\"=>[\"rails\"], \"rubocop-rspec\"=>[\"rspec\", \"rspec-rails\"], \"rubocop-minitest\"=>[\"minitest\"], \"rubocop-sequel\"=>[\"sequel\"], \"rubocop-rake\"=>[\"rake\"], \"rubocop-graphql\"=>[\"graphql\"]}"
+            }
+          }
+        },
+        "Gemspec/RequireMFA": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: **/*.gemspec"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            },
+            "Reference": {
+              "type": "array",
+              "description": "Default: https://guides.rubygems.org/mfa-requirement-opt-in/"
+            }
+          },
+          "description": "Requires a gemspec to have `rubygems_mfa_required` metadata set.\n\nThis setting tells RubyGems that MFA is required for accounts to be able perform any of these privileged operations:\n\n - gem push\n\n - gem yank\n\n - gem owner --add/remove\n\n - adding or removing owners using gem ownership page\n\nThis helps make your gem more secure, as users can be more confident that gem updates were pushed by maintainers.\n\n  # bad\n  Gem::Specification.new do |spec|\n    spec.metadata = {\n      'rubygems_mfa_required' => 'false'\n    }\n  end\n\n  # good\n  Gem::Specification.new do |spec|\n    spec.metadata = {\n      'rubygems_mfa_required' => 'true'\n    }\n  end\n\n  # bad\n  Gem::Specification.new do |spec|\n    spec.metadata['rubygems_mfa_required'] = 'false'\n  end\n\n  # good\n  Gem::Specification.new do |spec|\n    spec.metadata['rubygems_mfa_required'] = 'true'\n  end"
+        },
+        "Layout/EmptyLineBetweenDefs": {
+          "properties": {
+            "AllowAdjacentOneLineDefs": {
+              "description": "Default: true"
+            }
+          }
+        },
+        "Lint/AmbiguousRange": {
+          "description": "This cop checks for ambiguous ranges.\n\nRanges have quite low precedence, which leads to unexpected behaviour when using a range with other operators. This cop avoids that by making ranges explicit by requiring parenthesis around complex range boundaries (anything that is not a literal: numerics, strings, symbols, etc.).\n\nThis cop can be configured with `RequireParenthesesForMethodChains` in order to specify whether method chains (including `self.foo`) should be wrapped in parens by this cop.\n\nRegardless of this configuration, if a method receiver is a basic literal value, it will be wrapped in order to prevent the ambiguity of `1..2.to_a`."
+        },
+        "Lint/UselessRuby2Keywords": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop looks for `ruby2_keywords` calls for methods that do not need it.\n\n`ruby2_keywords` should only be called on methods that accept an argument splat (`*args`) but do not explicit keyword arguments (`k:` or `k: true`) or a keyword splat (`**kwargs`)."
+        },
+        "Metrics/ParameterLists": {
+          "description": "This cop checks for methods with too many parameters.\n\nThe maximum number of parameters is configurable. Keyword arguments can optionally be excluded from the total count, as they add less complexity than positional or optional parameters.\n\nExplicit block argument `&block` is not counted to prevent erroneous change that is avoided by making block argument implicit.\n\nThis cop also checks for the maximum number of optional parameters. This can be configured using the `MaxOptionalParameters` config option."
+        },
+        "Naming/FileName": {
+          "properties": {
+            "CheckDefinitionPathHierarchyRoots": {
+              "type": "array",
+              "description": "Default: lib, spec, test, src"
+            }
+          },
+          "description": "This cop makes sure that Ruby source files have snake_case names. Ruby scripts (i.e. source files with a shebang in the first line) are ignored.\n\nThe cop also ignores `.gemspec` files, because Bundler recommends using dashes to separate namespaces in nested gems (i.e. `bundler-console` becomes `Bundler::Console`). As such, the gemspec is supposed to be named `bundler-console.gemspec`.\n\nWhen `ExpectMatchingDefinition` (default: `false`) is `true`, the cop requires each file to have a class, module or `Struct` defined in it that matches the filename. This can be further configured using `CheckDefinitionPathHierarchy` (default: `true`) to determine whether the path should match the namespace of the above definition.\n\nWhen `IgnoreExecutableScripts` (default: `true`) is `true`, files that start with a shebang line are not considered by the cop.\n\nWhen `Regex` is set, the cop will flag any filename that does not match the regular expression."
+        },
+        "Style/EmptyMethod": {
+          "description": "This cop checks for the formatting of empty method definitions. By default it enforces empty method definitions to go on a single line (compact style), but it can be configured to enforce the `end` to go on its own line (expanded style).\n\nA method definition is not considered empty if it contains comments."
+        },
+        "Style/OpenStructUse": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "Reference": {
+              "type": "array",
+              "description": "Default: https://docs.ruby-lang.org/en/3.0.0/OpenStruct.html#class-OpenStruct-label-Caveats"
+            }
+          },
+          "description": "This cop flags uses of OpenStruct, as it is now officially discouraged to be used for performance, version compatibility, and potential security issues."
+        }
+      }
+    }
   }
 ]

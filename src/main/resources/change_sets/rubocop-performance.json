@@ -25231,5 +25231,122 @@
     "version": "1.11.3",
     "diff": {
     }
+  },
+  {
+    "version": "1.11.4",
+    "diff": {
+      "properties": {
+        "Performance/DeletePrefix": {
+          "properties": {
+            "AutoCorrect": null,
+            "Safe": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "In Ruby 2.5, `String#delete_prefix` has been added.\n\nThis cop identifies places where `gsub(/\\Aprefix/, '')` and `sub(/\\Aprefix/, '')` can be replaced by `delete_prefix('prefix')`. It is marked as unsafe by default because `Pathname` has `sub` but not `delete_prefix`.\n\nThis cop has `SafeMultiline` configuration option that `true` by default because `^prefix` is unsafe as it will behave incompatible with `delete_prefix` for receiver is multiline string.\n\nThe `delete_prefix('prefix')` method is faster than `gsub(/\\Aprefix/, '')`."
+        },
+        "Performance/DeleteSuffix": {
+          "properties": {
+            "AutoCorrect": null,
+            "Safe": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          },
+          "description": "In Ruby 2.5, `String#delete_suffix` has been added.\n\nThis cop identifies places where `gsub(/suffix\\z/, '')` and `sub(/suffix\\z/, '')` can be replaced by `delete_suffix('suffix')`. It is marked as unsafe by default because `Pathname` has `sub` but not `delete_suffix`.\n\nThis cop has `SafeMultiline` configuration option that `true` by default because `suffix$` is unsafe as it will behave incompatible with `delete_suffix?` for receiver is multiline string.\n\nThe `delete_suffix('suffix')` method is faster than `gsub(/suffix\\z/, '')`."
+        }
+      }
+    }
+  },
+  {
+    "version": "1.11.5",
+    "diff": {
+    }
+  },
+  {
+    "version": "1.12.0",
+    "diff": {
+      "properties": {
+        "Performance/ArraySemiInfiniteRangeSlice": {
+          "description": "This cop identifies places where slicing arrays with semi-infinite ranges can be replaced by `Array#take` and `Array#drop`. This cop was created due to a mistake in microbenchmark and hence is disabled by default. Refer https://github.com/rubocop/rubocop-performance/pull/175#issuecomment-731892717"
+        },
+        "Performance/CaseWhenSplat": {
+          "description": "Reordering `when` conditions with a splat to the end of the `when` branches can improve performance.\n\nRuby has to allocate memory for the splat expansion every time that the `case` `when` statement is run. Since Ruby does not support fall through inside of `case` `when`, like some other languages do, the order of the `when` branches should not matter. By placing any splat expansions at the end of the list of `when` branches we will reduce the number of times that memory has to be allocated for the expansion. The exception to this is if multiple of your `when` conditions can be true for any given condition. A likely scenario for this defining a higher level when condition to override a condition that is inside of the splat expansion."
+        },
+        "Performance/Casecmp": {
+          "description": "This cop identifies places where a case-insensitive string comparison can better be implemented using `casecmp`."
+        },
+        "Performance/ConcurrentMonotonicTime": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            },
+            "Reference": {
+              "type": "string",
+              "description": "Default: https://github.com/rails/rails/pull/43502"
+            }
+          },
+          "description": "This cop identifies places where `Concurrent.monotonic_time` can be replaced by `Process.clock_gettime(Process::CLOCK_MONOTONIC)`."
+        },
+        "Performance/Count": {
+          "description": "This cop is used to identify usages of `count` on an `Enumerable` that follow calls to `select`, `find_all`, `filter` or `reject`. Querying logic can instead be passed to the `count` call."
+        },
+        "Performance/DeletePrefix": {
+          "description": "In Ruby 2.5, `String#delete_prefix` has been added.\n\nThis cop identifies places where `gsub(/\\Aprefix/, '')` and `sub(/\\Aprefix/, '')` can be replaced by `delete_prefix('prefix')`.\n\nThis cop has `SafeMultiline` configuration option that `true` by default because `^prefix` is unsafe as it will behave incompatible with `delete_prefix` for receiver is multiline string.\n\nThe `delete_prefix('prefix')` method is faster than `gsub(/\\Aprefix/, '')`."
+        },
+        "Performance/DeleteSuffix": {
+          "description": "In Ruby 2.5, `String#delete_suffix` has been added.\n\nThis cop identifies places where `gsub(/suffix\\z/, '')` and `sub(/suffix\\z/, '')` can be replaced by `delete_suffix('suffix')`.\n\nThis cop has `SafeMultiline` configuration option that `true` by default because `suffix$` is unsafe as it will behave incompatible with `delete_suffix?` for receiver is multiline string.\n\nThe `delete_suffix('suffix')` method is faster than `gsub(/suffix\\z/, '')`."
+        },
+        "Performance/MapCompact": {
+          "description": "In Ruby 2.7, `Enumerable#filter_map` has been added.\n\nThis cop identifies places where `map { ... }.compact` can be replaced by `filter_map`.\n\n[true, false, nil].compact              #=> [true, false] [true, false, nil].filter_map(&:itself) #=> [true]"
+        },
+        "Performance/RangeInclude": {
+          "description": "This cop identifies uses of `Range#include?` and `Range#member?`, which iterates over each item in a `Range` to see if a specified item is there. In contrast, `Range#cover?` simply compares the target item with the beginning and end points of the `Range`. In a great majority of cases, this is what is wanted."
+        },
+        "Performance/RedundantEqualityComparisonBlock": {
+          "description": "This cop checks for uses `Enumerable#all?`, `Enumerable#any?`, `Enumerable#one?`, and `Enumerable#none?` are compared with `===` or similar methods in block.\n\nBy default, `Object#===` behaves the same as `Object#==`, but this behavior is appropriately overridden in subclass. For example, `Range#===` returns `true` when argument is within the range."
+        },
+        "Performance/RedundantMerge": {
+          "description": "This cop identifies places where `Hash#merge!` can be replaced by `Hash#[]=`. You can set the maximum number of key-value pairs to consider an offense with `MaxKeyValuePairs`."
+        },
+        "Performance/StringInclude": {
+          "properties": {
+            "AutoCorrect": null
+          },
+          "description": "This cop identifies unnecessary use of a regex where `String#include?` would suffice."
+        },
+        "Performance/UnfreezeString": {
+          "description": "In Ruby 2.3 or later, use unary plus operator to unfreeze a string literal instead of `String#dup` and `String.new`. Unary plus operator is faster than `String#dup`."
+        }
+      }
+    }
   }
 ]

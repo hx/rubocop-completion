@@ -26884,5 +26884,336 @@
         }
       }
     }
+  },
+  {
+    "version": "2.11.0",
+    "diff": {
+      "properties": {
+        "Rails/AddColumnIndex": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: db/migrate/*.rb"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for migrations using `add_column` that have an `index` key. `add_column` does not accept `index`, but also does not raise an error for extra keys, so it is possible to mistakenly add the key without realizing it will not actually add an index."
+        },
+        "Rails/Date": {
+          "properties": {
+            "AllowToTime": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          },
+          "description": "This cop checks for the correct use of Date methods, such as Date.today, Date.current etc.\n\nUsing `Date.today` is dangerous, because it doesn't know anything about Rails time zone. You must use `Time.zone.today` instead.\n\nThe cop also reports warnings when you are using `to_time` method, because it doesn't know about Rails time zone either.\n\nTwo styles are supported for this cop. When `EnforcedStyle` is 'strict' then the Date methods `today`, `current`, `yesterday`, and `tomorrow` are prohibited and the usage of both `to_time` and 'to_time_in_current_zone' are reported as warning.\n\nWhen `EnforcedStyle` is `flexible` then only `Date.today` is prohibited.\n\nAnd you can set a warning for `to_time` with `AllowToTime: false`. `AllowToTime` is `true` by default to prevent false positive on `DateTime` object."
+        },
+        "Rails/EagerEvaluationLogMessage": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            },
+            "Reference": {
+              "type": "string",
+              "description": "Default: https://guides.rubyonrails.org/debugging_rails_applications.html#impact-of-logs-on-performance"
+            }
+          },
+          "description": "This cop checks that blocks are used for interpolated strings passed to `Rails.logger.debug`.\n\nBy default, Rails production environments use the `:info` log level. At the `:info` log level, `Rails.logger.debug` statements do not result in log output. However, Ruby must eagerly evaluate interpolated string arguments passed as method arguments. Passing a block to `Rails.logger.debug` prevents costly evaluation of interpolated strings when no output would be produced anyway."
+        },
+        "Rails/EnvironmentVariableAccess": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: false"
+            }
+          }
+        },
+        "Rails/ExpandedDateRange": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for expanded date range. It only compatible `..` range is targeted. Incompatible `...` range is ignored."
+        },
+        "Rails/FindBy": {
+          "properties": {
+            "IgnoreWhereFirst": {
+              "type": "boolean",
+              "description": "Default: true"
+            }
+          },
+          "description": "This cop is used to identify usages of `where.take` and change them to use `find_by` instead.\n\nAnd `where(...).first` can return different results from `find_by`. (They order records differently, so the \"first\" record can be different.)\n\nIf you also want to detect `where.first`, you can set `IgnoreWhereFirst` to false."
+        },
+        "Rails/I18nLocaleAssignment": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: spec//.rb, test//.rb"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for the use of `I18n.locale=` method.\n\nThe `locale` attribute persists for the rest of the Ruby runtime, potentially causing unexpected behavior at a later time. Using `I18n.with_locale` ensures the code passed in the block is the only place `I18n.locale` is affected. It eliminates the possibility of a `locale` sticking around longer than intended."
+        },
+        "Rails/TimeZone": {
+          "description": "This cop checks for the use of Time methods without zone.\n\nBuilt on top of Ruby on Rails style guide (https://rails.rubystyle.guide#time) and the article http://danilenko.org/2012/7/6/rails_timezones/\n\nTwo styles are supported for this cop. When `EnforcedStyle` is 'strict' then only use of `Time.zone` is allowed.\n\nWhen EnforcedStyle is 'flexible' then it's also allowed to use `Time#in_time_zone`."
+        },
+        "Rails/TimeZoneAssignment": {
+          "description": "This cop checks for the use of `Time.zone=` method.\n\nThe `zone` attribute persists for the rest of the Ruby runtime, potentially causing unexpected behavior at a later time. Using `Time.use_zone` ensures the code passed in the block is the only place Time.zone is affected. It eliminates the possibility of a `zone` sticking around longer than intended."
+        },
+        "Rails/UnusedIgnoredColumns": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: app/models/*/.rb"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop suggests you remove a column that does not exist in the schema from `ignored_columns`. `ignored_columns` is necessary to drop a column from RDBMS, but you don't need it after the migration to drop the column. You avoid forgetting to remove `ignored_columns` by this cop."
+        }
+      }
+    }
+  },
+  {
+    "version": "2.11.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "2.11.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "2.11.3",
+    "diff": {
+    }
+  },
+  {
+    "version": "2.12.0",
+    "diff": {
+      "properties": {
+        "Rails/ContentTag": {
+          "properties": {
+            "Reference": {
+              "description": "Default: https://github.com/rubocop/rubocop-rails/issues/260, https://github.com/rails/rails/issues/25195, https://api.rubyonrails.org/classes/ActionView/Helpers/TagHelper.html#method-i-content_tag"
+            }
+          },
+          "description": "This cop checks legacy syntax usage of `tag`\n\nAllow `tag` when the first argument is a variable because       `tag(name)` is simpler rather than `tag.public_send(name)`.       And this cop will be renamed to something like `LegacyTag` in the future. (e.g. RuboCop Rails 2.0)"
+        },
+        "Rails/Output": {
+          "properties": {
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        },
+        "Rails/RedundantTravelBack": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles",
+              "description": "Default: spec//.rb, test//.rb"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop checks for redundant `travel_back` calls. Since Rails 5.2, `travel_back` is automatically called at the end of the test."
+        },
+        "Rails/ScopeArgs": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "2.12.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "2.12.2",
+    "diff": {
+    }
+  },
+  {
+    "version": "2.12.3",
+    "diff": {
+      "properties": {
+        "Rails/ContentTag": {
+          "properties": {
+            "Exclude": {
+              "description": "Default: app/models/*/.rb"
+            }
+          }
+        },
+        "Rails/CreateTableWithTimestamps": {
+          "properties": {
+            "Exclude": {
+              "description": "Default: db/migrate/*_create_active_storage_tables.active_storage.rb"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "2.12.4",
+    "diff": {
+    }
   }
 ]

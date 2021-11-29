@@ -5429,5 +5429,220 @@
         }
       }
     }
+  },
+  {
+    "version": "2.5.0",
+    "diff": {
+      "properties": {
+        "RSpec/DescribeClass": {
+          "properties": {
+            "Exclude": {
+              "description": "Default: **/spec/features/**/*, **/spec/requests/**/*, **/spec/routing/**/*, **/spec/system/**/*, **/spec/views/**/*"
+            }
+          }
+        },
+        "RSpec/ExcessiveDocstringSpacing": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            },
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "Checks for excessive whitespace in example descriptions."
+        },
+        "RSpec/ExpectChange": {
+          "properties": {
+            "AutoCorrect": null,
+            "SafeAutoCorrect": {
+              "type": "boolean",
+              "description": "Default: false"
+            }
+          }
+        },
+        "RSpec/NestedGroups": {
+          "description": "Checks for nested example groups.\n\nThis cop is configurable using the `Max` option and supports `--auto-gen-config`."
+        },
+        "RSpec/SubjectDeclaration": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "Ensure that subject is defined using subject helper."
+        },
+        "RSpec/Capybara/CurrentPathExpectation": {
+          "properties": {
+            "AutoCorrect": null
+          },
+          "description": "Checks that no expectations are set on Capybara's `current_path`."
+        },
+        "RSpec/Capybara/FeatureMethods": {
+          "properties": {
+            "AutoCorrect": null,
+            "EnabledMethods": {
+              "description": "Default: "
+            }
+          },
+          "description": "Checks for consistent method usage in feature specs."
+        },
+        "RSpec/Capybara/VisibilityMatcher": {
+          "description": "Checks for boolean visibility in capybara finders."
+        },
+        "RSpec/FactoryBot/AttributeDefinedStatically": {
+          "properties": {
+            "AutoCorrect": null,
+            "Include": {
+              "description": "Default: spec/factories.rb, spec/factories/**/*.rb, features/support/factories/**/*.rb"
+            }
+          }
+        },
+        "RSpec/FactoryBot/CreateList": {
+          "properties": {
+            "AutoCorrect": null,
+            "Include": {
+              "description": "Default: **/*_spec.rb, **/spec/**/*, spec/factories.rb, spec/factories/**/*.rb, features/support/factories/**/*.rb"
+            },
+            "EnforcedStyle": {
+              "enum": null,
+              "type": "string"
+            }
+          },
+          "description": "Checks for create_list usage."
+        },
+        "RSpec/FactoryBot/FactoryClassName": {
+          "properties": {
+            "AutoCorrect": null,
+            "Include": {
+              "description": "Default: spec/factories.rb, spec/factories/**/*.rb, features/support/factories/**/*.rb"
+            }
+          },
+          "description": "Use string value when setting the class attribute explicitly."
+        },
+        "RSpec/Rails/AvoidSetupHook": {
+          "properties": {
+            "AutoCorrect": null
+          }
+        },
+        "RSpec/Rails/HttpStatus": {
+          "properties": {
+            "AutoCorrect": null,
+            "EnforcedStyle": {
+              "enum": null,
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "2.6.0",
+    "diff": {
+      "properties": {
+        "RSpec": {
+          "properties": {
+            "Language": {
+              "description": "Default: {\"inherit_mode\"=>{\"merge\"=>[\"Expectations\", \"Helpers\", \"Hooks\", \"HookScopes\", \"Runners\", \"Subjects\"]}, \"ExampleGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\"]}, \"Regular\"=>[\"describe\", \"context\", \"feature\", \"example_group\"], \"Skipped\"=>[\"xdescribe\", \"xcontext\", \"xfeature\"], \"Focused\"=>[\"fdescribe\", \"fcontext\", \"ffeature\"]}, \"Examples\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\", \"Pending\"]}, \"Regular\"=>[\"it\", \"specify\", \"example\", \"scenario\", \"its\"], \"Focused\"=>[\"fit\", \"fspecify\", \"fexample\", \"fscenario\", \"focus\"], \"Skipped\"=>[\"xit\", \"xspecify\", \"xexample\", \"xscenario\", \"skip\"], \"Pending\"=>[\"pending\"]}, \"Expectations\"=>[\"expect\", \"is_expected\", \"expect_any_instance_of\"], \"Helpers\"=>[\"let\", \"let!\"], \"Hooks\"=>[\"prepend_before\", \"before\", \"append_before\", \"around\", \"prepend_after\", \"after\", \"append_after\"], \"HookScopes\"=>[\"each\", \"example\", \"context\", \"all\", \"suite\"], \"Includes\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"it_behaves_like\", \"it_should_behave_like\", \"include_examples\"], \"Context\"=>[\"include_context\"]}, \"Runners\"=>[\"to\", \"to_not\", \"not_to\"], \"SharedGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"shared_examples\", \"shared_examples_for\"], \"Context\"=>[\"shared_context\"]}, \"Subjects\"=>[\"subject\", \"subject!\"]}"
+            }
+          }
+        },
+        "RSpec/VariableDefinition": {
+          "properties": {
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "RSpec/Capybara": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            },
+            "Include": {
+              "description": "Default: **/*_spec.rb, **/spec/**/*"
+            },
+            "Language": {
+              "description": "Default: {\"inherit_mode\"=>{\"merge\"=>[\"Expectations\", \"Helpers\", \"Hooks\", \"HookScopes\", \"Runners\", \"Subjects\"]}, \"ExampleGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\"]}, \"Regular\"=>[\"describe\", \"context\", \"feature\", \"example_group\"], \"Skipped\"=>[\"xdescribe\", \"xcontext\", \"xfeature\"], \"Focused\"=>[\"fdescribe\", \"fcontext\", \"ffeature\"]}, \"Examples\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\", \"Pending\"]}, \"Regular\"=>[\"it\", \"specify\", \"example\", \"scenario\", \"its\"], \"Focused\"=>[\"fit\", \"fspecify\", \"fexample\", \"fscenario\", \"focus\"], \"Skipped\"=>[\"xit\", \"xspecify\", \"xexample\", \"xscenario\", \"skip\"], \"Pending\"=>[\"pending\"]}, \"Expectations\"=>[\"expect\", \"is_expected\", \"expect_any_instance_of\"], \"Helpers\"=>[\"let\", \"let!\"], \"Hooks\"=>[\"prepend_before\", \"before\", \"append_before\", \"around\", \"prepend_after\", \"after\", \"append_after\"], \"HookScopes\"=>[\"each\", \"example\", \"context\", \"all\", \"suite\"], \"Includes\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"it_behaves_like\", \"it_should_behave_like\", \"include_examples\"], \"Context\"=>[\"include_context\"]}, \"Runners\"=>[\"to\", \"to_not\", \"not_to\"], \"SharedGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"shared_examples\", \"shared_examples_for\"], \"Context\"=>[\"shared_context\"]}, \"Subjects\"=>[\"subject\", \"subject!\"]}"
+            }
+          }
+        },
+        "RSpec/FactoryBot": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            },
+            "Include": {
+              "description": "Default: **/*_spec.rb, **/spec/**/*"
+            },
+            "Language": {
+              "description": "Default: {\"inherit_mode\"=>{\"merge\"=>[\"Expectations\", \"Helpers\", \"Hooks\", \"HookScopes\", \"Runners\", \"Subjects\"]}, \"ExampleGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\"]}, \"Regular\"=>[\"describe\", \"context\", \"feature\", \"example_group\"], \"Skipped\"=>[\"xdescribe\", \"xcontext\", \"xfeature\"], \"Focused\"=>[\"fdescribe\", \"fcontext\", \"ffeature\"]}, \"Examples\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\", \"Pending\"]}, \"Regular\"=>[\"it\", \"specify\", \"example\", \"scenario\", \"its\"], \"Focused\"=>[\"fit\", \"fspecify\", \"fexample\", \"fscenario\", \"focus\"], \"Skipped\"=>[\"xit\", \"xspecify\", \"xexample\", \"xscenario\", \"skip\"], \"Pending\"=>[\"pending\"]}, \"Expectations\"=>[\"expect\", \"is_expected\", \"expect_any_instance_of\"], \"Helpers\"=>[\"let\", \"let!\"], \"Hooks\"=>[\"prepend_before\", \"before\", \"append_before\", \"around\", \"prepend_after\", \"after\", \"append_after\"], \"HookScopes\"=>[\"each\", \"example\", \"context\", \"all\", \"suite\"], \"Includes\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"it_behaves_like\", \"it_should_behave_like\", \"include_examples\"], \"Context\"=>[\"include_context\"]}, \"Runners\"=>[\"to\", \"to_not\", \"not_to\"], \"SharedGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"shared_examples\", \"shared_examples_for\"], \"Context\"=>[\"shared_context\"]}, \"Subjects\"=>[\"subject\", \"subject!\"]}"
+            }
+          }
+        },
+        "RSpec/Rails": {
+          "properties": {
+            "Enabled": {
+              "description": "Default: true"
+            },
+            "Include": {
+              "description": "Default: **/*_spec.rb, **/spec/**/*"
+            },
+            "Language": {
+              "description": "Default: {\"inherit_mode\"=>{\"merge\"=>[\"Expectations\", \"Helpers\", \"Hooks\", \"HookScopes\", \"Runners\", \"Subjects\"]}, \"ExampleGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\"]}, \"Regular\"=>[\"describe\", \"context\", \"feature\", \"example_group\"], \"Skipped\"=>[\"xdescribe\", \"xcontext\", \"xfeature\"], \"Focused\"=>[\"fdescribe\", \"fcontext\", \"ffeature\"]}, \"Examples\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Regular\", \"Skipped\", \"Focused\", \"Pending\"]}, \"Regular\"=>[\"it\", \"specify\", \"example\", \"scenario\", \"its\"], \"Focused\"=>[\"fit\", \"fspecify\", \"fexample\", \"fscenario\", \"focus\"], \"Skipped\"=>[\"xit\", \"xspecify\", \"xexample\", \"xscenario\", \"skip\"], \"Pending\"=>[\"pending\"]}, \"Expectations\"=>[\"expect\", \"is_expected\", \"expect_any_instance_of\"], \"Helpers\"=>[\"let\", \"let!\"], \"Hooks\"=>[\"prepend_before\", \"before\", \"append_before\", \"around\", \"prepend_after\", \"after\", \"append_after\"], \"HookScopes\"=>[\"each\", \"example\", \"context\", \"all\", \"suite\"], \"Includes\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"it_behaves_like\", \"it_should_behave_like\", \"include_examples\"], \"Context\"=>[\"include_context\"]}, \"Runners\"=>[\"to\", \"to_not\", \"not_to\"], \"SharedGroups\"=>{\"inherit_mode\"=>{\"merge\"=>[\"Examples\", \"Context\"]}, \"Examples\"=>[\"shared_examples\", \"shared_examples_for\"], \"Context\"=>[\"shared_context\"]}, \"Subjects\"=>[\"subject\", \"subject!\"]}"
+            }
+          }
+        }
+      }
+    }
   }
 ]

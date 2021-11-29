@@ -1539,5 +1539,118 @@
     "version": "0.12.1",
     "diff": {
     }
+  },
+  {
+    "version": "0.13.0",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.14.0",
+    "diff": {
+      "properties": {
+        "Minitest/UnreachableAssertion": {
+          "type": "object",
+          "additionalProperties": true,
+          "propertyNames": {
+            "$ref": "#/definitions/attributeName"
+          },
+          "properties": {
+            "Enabled": {
+              "type": "boolean",
+              "description": "Default: pending"
+            },
+            "Exclude": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Include": {
+              "$ref": "#/definitions/listOfFiles"
+            },
+            "Severity": {
+              "$ref": "#/definitions/severity"
+            },
+            "Details": {
+              "type": "string"
+            },
+            "StyleGuideBaseURL": {
+              "type": "string"
+            },
+            "StyleGuide": {
+              "type": "string"
+            }
+          },
+          "description": "This cop checks for `assert_raises` has an assertion method at the bottom of block because the assertion will be never reached."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.15.0",
+    "diff": {
+      "properties": {
+        "Minitest/AssertNil": {
+          "description": "This cop enforces the test to use `assert_nil` instead of using `assert_equal(nil, something)` or `assert(something.nil?)`."
+        },
+        "Minitest/RefuteNil": {
+          "description": "This cop enforces the test to use `refute_nil` instead of using `refute_equal(nil, something)` or `refute(something.nil?)`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.15.1",
+    "diff": {
+    }
+  },
+  {
+    "version": "0.15.2",
+    "diff": {
+      "properties": {
+        "Minitest/AssertEmptyLiteral": {
+          "properties": {
+            "SafeAutoCorrect": null,
+            "AutoCorrect": {
+              "type": "boolean"
+            }
+          },
+          "description": "This cop enforces the test to use `assert_empty` instead of using `assert_equal([], object)` or `assert_equal({}, object)`."
+        },
+        "Minitest/AssertWithExpectedArgument": {
+          "description": "This cop tries to detect when a user accidentally used `assert` when they meant to use `assert_equal`."
+        }
+      }
+    }
+  },
+  {
+    "version": "0.16.0",
+    "diff": {
+      "properties": {
+        "Minitest/GlobalExpectations": {
+          "properties": {
+            "Include": {
+              "description": "Default: **/test/**/*, **/*_test.rb, **/spec/**/*, **/*_spec.rb"
+            },
+            "EnforcedStyle": {
+              "enum": [
+                "_",
+                "any",
+                "expect",
+                "value"
+              ],
+              "description": "Default: any"
+            },
+            "SupportedStyles": {
+              "type": "array",
+              "description": "Default: _, any, expect, value"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "version": "0.17.0",
+    "diff": {
+    }
   }
 ]

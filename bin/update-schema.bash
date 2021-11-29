@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
-TARGET="$(pwd)/src/main/resources/schema-repo"
+TARGET="$(pwd)/src/main/resources/change_sets"
 CACHE="$(pwd)/.http-cache"
 mkdir -p "${TARGET}"
 mkdir -p "${CACHE}"
