@@ -3,6 +3,9 @@
 # rubocop-completion Changelog
 
 ## [Unreleased]
+### Changed
+- Updated `rubocop-schema-gen` gem to support defaults files containing YAML aliases.
+
 ## [0.1.0]
 ### Fixed
 - Made installation of `rubocop-schema-gen` gem more reliable, especially on macOS.

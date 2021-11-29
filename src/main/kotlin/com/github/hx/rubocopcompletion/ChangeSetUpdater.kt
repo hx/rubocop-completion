@@ -4,7 +4,7 @@ import com.intellij.openapi.progress.ProgressIndicator
 import java.nio.file.Path
 
 class ChangeSetUpdater(private val changeSetsDir: Path, private val gemsDir: Path) {
-    private val gemVersion = "0.1.5"
+    private val gemVersion = "0.1.6"
     private var installAttempted = false
 
     @Suppress("MagicNumber", "SwallowedException")
