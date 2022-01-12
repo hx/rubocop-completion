@@ -13,6 +13,9 @@ class Repo(private val provider: ChangeSetProvider) {
         val userHome = Repo(LocalChangeSets.userHome)
     }
 
+    // See https://github.com/Kotlin/kotlinx.serialization/issues/993#issuecomment-984742051 for why
+    // this @Suppress is necessary.
+    @Suppress("PROVIDED_RUNTIME_TOO_LOW")
     @Serializable
     private data class Entry(val version: String, val diff: JsonObject)
 
