@@ -73,6 +73,12 @@ tasks {
         gradleVersion = properties("gradleVersion")
     }
 
+    runPluginVerifier {
+        // Reducing this to a single version so that GitHub's CI doesn't run out of space downloading more than 1GB
+        // for each version.
+        ideVersions.set(listOf("IU-2021.3.1"))
+    }
+
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
